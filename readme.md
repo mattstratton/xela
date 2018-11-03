@@ -4,7 +4,7 @@ A webapp for tracking sponsorship, speaking, and cfps for events.
 
 Built with :heart: by [@mattstratton](https://github.com/mattstratton) in Go.
 
-![xela](https://raw.githubusercontent.com/mattstratton/bowie/master/assets/images/xela-logo.png)
+![xela](https://raw.githubusercontent.com/mattstratton/xela/master/assets/images/xela-logo.png)
 
 
 This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. We appreciate your contribution. Please refer to the [contributing guidelines](CONTRIBUTING.md) for details on how to help.
