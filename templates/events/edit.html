@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Edit <%= event.Title %></h1>
+</div>
+
+<%= form_for(event, {action: eventPath({ event_id: event.ID }), method: "PUT"}) { %>
+  <%= partial("events/form.html") %>
+  <a href="<%= eventPath({ event_id: event.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

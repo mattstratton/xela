@@ -72,6 +72,7 @@ func App() *buffalo.App {
 		auth.Middleware.Skip(Authorize, bah, AuthCallback)
 		auth.GET("/{provider}/callback", AuthCallback)
 		app.Resource("/dutonians", DutoniansResource{})
+		app.Resource("/events", EventsResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 

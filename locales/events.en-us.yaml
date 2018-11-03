@@ -1,0 +1,6 @@
+- id: "event.created.success"
+  translation: "Event was successfully created."
+- id: "event.updated.success"
+  translation: "Event was successfully updated."
+- id: "event.destroyed.success"
+  translation: "Event was successfully destroyed."

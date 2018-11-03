@@ -1,0 +1,12 @@
+create_table("events") {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("title", "string", {})
+	t.Column("location", "text", {"null": true})
+	t.Column("home_page", "text", {"null": true})
+	t.Column("schedule_page", "text", {"null": true})
+	t.Column("sponsor_page", "text", {"null": true})
+	t.Column("cfp_page", "text", {"null": true})
+	t.Column("registration_page", "text", {"null": true})
+	t.Column("event_report", "text", {"null": true})
+	t.Column("attendance", "integer", {"null": true})
+}

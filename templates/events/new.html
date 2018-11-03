@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>New Event</h1>
+</div>
+
+<%= form_for(event, {action: eventsPath(), method: "POST"}) { %>
+  <%= partial("events/form.html") %>
+  <a href="<%= eventsPath() %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>
