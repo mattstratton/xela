@@ -1,35 +1,37 @@
-# Welcome to Buffalo!
+# xela
 
-Thank you for choosing Buffalo for your web development needs.
+A webapp for tracking sponsorship, speaking, and cfps for events.
 
-## Database Setup
+Built with :heart: by [@mattstratton](https://github.com/mattstratton) in Go.
 
-It looks like you chose to set up your application using a postgres database! Fantastic!
+![xela](https://raw.githubusercontent.com/mattstratton/bowie/master/assets/images/xela-logo.png)
 
-The first thing you need to do is open up the "database.yml" file and edit it to use the correct usernames, passwords, hosts, etc... that are appropriate for your environment.
 
-You will also need to make sure that **you** start/install the database of your choice. Buffalo **won't** install and start postgres for you.
-
-### Create Your Databases
-
-Ok, so you've edited the "database.yml" file and started postgres, now Buffalo can create the databases in that file for you:
-
-	$ buffalo db create -a
-
-## Starting the Application
-
-Buffalo ships with a command that will watch your application and automatically rebuild the Go binary and any assets for you. To do that run the "buffalo dev" command:
-
-	$ buffalo dev
-
-If you point your browser to [http://127.0.0.1:3000](http://127.0.0.1:3000) you should see a "Welcome to Buffalo!" page.
-
-**Congratulations!** You now have your Buffalo application up and running.
-
-## What Next?
-
-We recommend you heading over to [http://gobuffalo.io](http://gobuffalo.io) and reviewing all of the great documentation there.
-
-Good luck!
+This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. We appreciate your contribution. Please refer to the [contributing guidelines](CONTRIBUTING.md) for details on how to help.
 
 [Powered by Buffalo](http://gobuffalo.io)
+
+## Authors
+
+- **Matt Stratton** - *Initial work* - [mattstratton](https://github.com/mattstratton)
+
+## License
+
+xela - A webapp for tracking sponsorship, speaking, and cfps for events
+
+|                      |                                          |
+|:---------------------|:-----------------------------------------|
+| **Author:**          | Matt Stratton (<matt.stratton@gmail.com>)
+| **Copyright:**       | Copyright 2018, PagerDuty
+| **License:**         | The MIT License
+
+```markdown
+The MIT License (MIT)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+```
