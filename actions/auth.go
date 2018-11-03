@@ -3,6 +3,7 @@ package actions
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/PagerDuty/xela/models"
 	"github.com/gobuffalo/buffalo"
@@ -48,12 +49,18 @@ func AuthCallback(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
+	if userDomain := strings.SplitAfter(gu.Email, "@"); userDomain[1] != os.Getenv("AUTHORIZED_LOGIN_DOMAIN") {
+		c.Session().Clear()
+		c.Flash().Add("danger", "You are not authorized to log in")
+		return c.Redirect(302, "/")
+	}
 	c.Session().Set("current_user_id", u.ID)
 	if err = c.Session().Save(); err != nil {
 		return errors.WithStack(err)
 	}
 
 	c.Flash().Add("success", "You have been logged in")
+
 	return c.Redirect(302, "/")
 }
 
