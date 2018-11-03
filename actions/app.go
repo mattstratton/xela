@@ -12,6 +12,8 @@ import (
 	csrf "github.com/gobuffalo/mw-csrf"
 	i18n "github.com/gobuffalo/mw-i18n"
 	"github.com/gobuffalo/packr"
+
+	"github.com/markbates/goth/gothic"
 )
 
 // ENV is used to help switch settings based on where the
@@ -60,6 +62,15 @@ func App() *buffalo.App {
 
 		app.GET("/", HomeHandler)
 
+		auth := app.Group("/auth")
+		app.Use(SetCurrentUser)
+		app.Use(Authorize)
+		app.Middleware.Skip(Authorize, HomeHandler)
+		bah := buffalo.WrapHandlerFunc(gothic.BeginAuthHandler)
+		auth.GET("/{provider}", bah)
+		auth.DELETE("", AuthDestroy)
+		auth.Middleware.Skip(Authorize, bah, AuthCallback)
+		auth.GET("/{provider}/callback", AuthCallback)
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 

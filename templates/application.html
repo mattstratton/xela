@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <title>Buffalo - Xela</title>
+    <title>Xela</title>
     <%= stylesheetTag("application.css") %>
     <meta name="csrf-param" content="authenticity_token" />
     <meta name="csrf-token" content="<%= authenticity_token %>" />
@@ -12,10 +12,61 @@
   <body>
 
     <div class="container">
+      <!-- NavBar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+        <a class="navbar-brand" href="<%= rootPath() %>">Xela</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Abstracts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dutonians</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav">
+
+              <%= if (current_user) { %>
+                <li class="nav-item">
+                  <%= current_user.Name %>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Logout</a>
+                </li>
+              <% } else { %>
+                <li class="nav-item">
+                    <a href="auth/google" class="nav-link">Login</a>
+                </li>
+              <% } %>
+            </ul>
+        </div>
+        </nav> 
+        <!-- End NavBar --> 
       <%= partial("flash.html") %>
       <%= yield %>
     </div>
-
+    <footer class="bg-dark text-white mt-4">
+        <div class="container-fluid py-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Footer</h5></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">I stay at the bottom of the viewport! <span class="small"><br>Unless the page content pushes me further.</span></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3 text-right small align-self-end">©2018 PagerDuty</div>
+            </div>
+        </div>
+    </footer>
     <%= javascriptTag("application.js") %>
   </body>
 </html>
