@@ -1,0 +1,6 @@
+- id: "dutonian.created.success"
+  translation: "Dutonian was successfully created."
+- id: "dutonian.updated.success"
+  translation: "Dutonian was successfully updated."
+- id: "dutonian.destroyed.success"
+  translation: "Dutonian was successfully destroyed."

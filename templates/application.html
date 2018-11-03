@@ -27,7 +27,7 @@
                 <a class="nav-link" href="#">Abstracts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Dutonians</a>
+                <a class="nav-link" href="/dutonians">Dutonians</a>
             </li>
             </ul>
             <ul class="navbar-nav">
@@ -37,7 +37,7 @@
                   <%= current_user.Name %>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Logout</a>
+                    <a href="/auth" data-method="DELETE" class="nav-link">Logout</a>
                 </li>
               <% } else { %>
                 <li class="nav-item">

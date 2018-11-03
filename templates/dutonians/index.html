@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Dutonians</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newDutoniansPath() %>" class="btn btn-primary">Create New Dutonian</a></li>
+</ul>
+
+<table class="table table-striped">
+  <!-- <thead>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Bio</th>
+    <th>&nbsp;</th>
+  </thead> -->
+  <tbody>
+    <%= for (dutonian) in dutonians { %>
+      <tr>
+        <td><%= dutonian.Firstname %>&nbsp;<%= dutonian.Lastname %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= dutonianPath({ dutonian_id: dutonian.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editDutonianPath({ dutonian_id: dutonian.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= dutonianPath({ dutonian_id: dutonian.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

@@ -1,0 +1,10 @@
+create_table("dutonians") {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("user_id", "uuid", {})
+	t.Column("firstname", "string", {})
+	t.Column("lastname", "string", {})
+	t.Column("bio", "text", {"null": true})
+	t.Column("twitter", "string", {"null": true})
+	t.Column("github", "string", {"null": true})
+	t.Column("homepage", "string", {"null": true})
+}
