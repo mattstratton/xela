@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>Edit <%= abstract.Title %></h1>
+</div>
+
+<%= form_for(abstract, {action: abstractPath({ abstract_id: abstract.ID }), method: "PUT"}) { %>
+  <%= partial("abstracts/form.html") %>
+  <a href="<%= abstractPath({ abstract_id: abstract.ID }) %>" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

@@ -1,0 +1,6 @@
+<%= f.InputTag("Title") %>
+<%= f.TextAreaTag("OneSentenceDescription", {rows: 2}) %>
+<%= f.TextAreaTag("ShortDescription", {rows: 4}) %>
+<%= f.TextAreaTag("Abstract", {rows: 20}) %>
+<%= f.SelectTag("TalkType", {options: {"Talk": "talk", "Ignite": "ignite", "Workshop": "workshop"}}) %>
+<button class="btn btn-success" role="submit">Save</button>

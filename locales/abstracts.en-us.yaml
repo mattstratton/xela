@@ -1,0 +1,6 @@
+- id: "abstract.created.success"
+  translation: "Abstract was successfully created."
+- id: "abstract.updated.success"
+  translation: "Abstract was successfully updated."
+- id: "abstract.destroyed.success"
+  translation: "Abstract was successfully destroyed."

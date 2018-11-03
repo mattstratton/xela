@@ -73,6 +73,7 @@ func App() *buffalo.App {
 		auth.GET("/{provider}/callback", AuthCallback)
 		app.Resource("/dutonians", DutoniansResource{})
 		app.Resource("/events", EventsResource{})
+		app.Resource("/abstracts", AbstractsResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 

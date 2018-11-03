@@ -1,0 +1,8 @@
+create_table("abstracts") {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("title", "string", {})
+	t.Column("one_sentence_description", "text", {"null": true})
+	t.Column("short_description", "text", {"null": true})
+	t.Column("abstract", "text", {})
+	t.Column("talk_type", "text", {"null": true})
+}
