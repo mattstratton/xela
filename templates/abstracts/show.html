@@ -5,20 +5,31 @@
 <p>
   <strong>Title</strong>: <%= abstract.Title %>
 </p>
-<p>
-  <strong>One Sentence Description</strong>: <%= abstract.OneSentenceDescription %>
-</p>
+
+<%= checkNull() %>
+
+<%= if (abstract.OneSentenceDescription.String != "") { %>
+  <p>
+      <strong>One Sentence Description</strong>: <%= abstract.OneSentenceDescription %>
+  </p>
+<% } %>
+
+<%= if (abstract.ShortDescription.String != "") { %>
 <p>
   <strong>Short Description</strong>: <%= abstract.ShortDescription %>
 </p>
+<% } %>
 <p>
   <strong>Abstract</strong>: <%= abstract.Abstract %>
 </p>
 <p>
-  <strong>Talk Type</strong>: <%= abstract.TalkType %>
+  <strong>Talk Type</strong>: <%= capitalize(abstract.TalkType.String) %>
 </p>
 
-<i>Created by <%= abstract.UserID %></i>
+<i>Created on <%= abstract.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail() %></i>
+<br />
+<i>Last updated on <%= abstract.UpdatedAt.Format("January 02, 2006 15:04:05") %></i>
+<hr />
 
 <ul class="list-unstyled list-inline">
   <li class="list-inline-item"><a href="<%= abstractsPath() %>" class="btn btn-info">Back to all Abstracts</a></li>

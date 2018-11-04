@@ -1,0 +1,9 @@
+build:
+  docker:
+    web: Dockerfile
+
+release:
+  command:
+    - /bin/app migrate
+  image: web
+
