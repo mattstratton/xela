@@ -2,12 +2,6 @@
   <h1><%= abstract.Title %></h1>
 </div>
 
-<ul class="list-unstyled list-inline">
-  <li class="list-inline-item"><a href="<%= abstractsPath() %>" class="btn btn-info">Back to all Abstracts</a></li>
-  <li class="list-inline-item"><a href="<%= editAbstractPath({ abstract_id: abstract.ID })%>" class="btn btn-warning">Edit</a></li>
-  <li class="list-inline-item"><a href="<%= abstractPath({ abstract_id: abstract.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
-</ul>
-
 <p>
   <strong>Title</strong>: <%= abstract.Title %>
 </p>
@@ -23,3 +17,11 @@
 <p>
   <strong>Talk Type</strong>: <%= abstract.TalkType %>
 </p>
+
+<i>Created by <%= abstract.UserID %></i>
+
+<ul class="list-unstyled list-inline">
+  <li class="list-inline-item"><a href="<%= abstractsPath() %>" class="btn btn-info">Back to all Abstracts</a></li>
+  <li class="list-inline-item"><a href="<%= editAbstractPath({ abstract_id: abstract.ID })%>" class="btn btn-warning">Edit</a></li>
+  <li class="list-inline-item"><a href="<%= abstractPath({ abstract_id: abstract.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+</ul>

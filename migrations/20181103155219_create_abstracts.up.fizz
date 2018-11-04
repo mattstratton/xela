@@ -1,5 +1,6 @@
 create_table("abstracts") {
 	t.Column("id", "uuid", {"primary": true})
+	t.Column("user_id", "uuid", {})
 	t.Column("title", "string", {})
 	t.Column("one_sentence_description", "text", {"null": true})
 	t.Column("short_description", "text", {"null": true})
