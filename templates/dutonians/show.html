@@ -2,18 +2,32 @@
   <h1><%= dutonian.Firstname %>&nbsp;<%= dutonian.Lastname %></h1>
 </div>
 
+<%= if (dutonian.Bio.String != "") { %>
+
+
 <p>
-  <strong>Bio</strong>: <%= dutonian.Bio %>
+   <%= markdown(dutonian.Bio.String) %>
 </p>
+
+<% } %>
+
+<%= if (dutonian.Twitter.String != "") { %>
 <p>
-  <strong>Twitter</strong>: <%= dutonian.Twitter %>
+    <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i> <a href = "https://wwww.twitter.com/<%= dutonian.Twitter %>"><%= dutonian.Twitter %></a>
 </p>
+<% } %>
+
+<%= if (dutonian.Github.String != "") { %>
 <p>
-  <strong>Github</strong>: <%= dutonian.Github %>
+    <i class="fa fa-github-square fa-2x" aria-hidden="true"></i> <a href = "https://www.github.com/<%= dutonian.Github %>"><%= dutonian.Github %></a>
 </p>
+<% } %>
+
+<%= if (dutonian.Homepage.String != "") { %>
 <p>
-  <strong>Homepage</strong>: <%= dutonian.Homepage %>
+    <i class="fa fa-home fa-2x" aria-hidden="true"></i> <a href = "<%= dutonian.Homepage %>"><%= dutonian.Homepage %></a>
 </p>
+<% } %>
 
 <i>Created on <%= dutonian.CreatedAt.Format("January 02, 2006 15:04:05") %></i>
 <br />

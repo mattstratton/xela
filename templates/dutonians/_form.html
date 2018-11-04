@@ -1,7 +1,7 @@
-<%= f.InputTag("Firstname") %>
-<%= f.InputTag("Lastname") %>
-<%= f.TextArea("Bio", {rows: 10}) %>
-<%= f.InputTag("Twitter") %>
-<%= f.InputTag("Github") %>
-<%= f.InputTag("Homepage") %>
+<%= f.InputTag("Firstname", {label: "First Name"}) %>
+<%= f.InputTag("Lastname", {label: "Last Name"}) %>
+<%= f.TextArea("Bio", {rows: 10, label:"Bio <br><i>Markdown is supported</i>"}) %>
+<%= f.InputTag("Twitter", {label: "Twitter handle <br><i>example: @mattstratton</i>"}) %>
+<%= f.InputTag("Github", {label: "GitHub handle <br><i>example: mattstratton</i>"}) %>
+<%= f.InputTag("Homepage", {label: "Homepage <br><i>including http:// prefix</i>"}) %>
 <button class="btn btn-success" role="submit">Save</button>
