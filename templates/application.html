@@ -13,21 +13,23 @@
 
     <div class="container">
       <!-- NavBar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
-        <a class="navbar-brand" href="<%= rootPath() %>">Xela</a>
+      <nav class="navbar fixed-top navbar-expand-lg header">
+        <a class="navbar-brand" href="<%= rootPath() %>">
+            <img src="/assets/images/x-logo-green.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/events">Events</a>
+                <a class="nav-link" href="/events">EVENTS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/dutonians">Dutonians</a>
+                <a class="nav-link" href="/dutonians">DUTONIANS</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/abstracts">Abstracts</a>
+                <a class="nav-link" href="/abstracts">ABSTRACTS</a>
             </li>
             </ul>
             <ul class="navbar-nav">
@@ -48,17 +50,21 @@
         </div>
         </nav> 
         <!-- End NavBar --> 
-      <%= partial("flash.html") %>
-      <%= yield %>
-    </div>
+        </div>
+        <div class="container main-body">      
+            <%= partial("flash.html") %>
+            <%= yield %>
+        </div>
+
+
     <footer class="bg-dark text-white mt-4">
-        <div class="container-fluid py-3">
+        <div class="container-fluid py-3 footer">
             <div class="row">
                 <div class="col-md-3">
                     <h5>Footer</h5></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3"></div>
+                <div class="col-md-3">Hello</div>
+                <div class="col-md-3">Second</div>
+                <div class="col-md-3">ME!</div>
             </div>
             <div class="row">
                 <div class="col-md-6">I stay at the bottom of the viewport! <span class="small"><br>Unless the page content pushes me further.</span></div>

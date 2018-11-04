@@ -1,0 +1,27 @@
+.footer {
+    background: #444;
+}
+
+.header {
+    background: #444;
+    color: #FFF;
+}
+
+.nav-link {
+    // margin-top: 20px;
+    line-height: 25px;
+    display: inline-block;
+    padding: 0 12px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-family: colfax-medium, Helvetica, "Helvetica Neue", sans-serif;
+    letter-spacing: 0 !important;
+}
+
+.nav-link:hover {
+    color: #FFF;
+    text-decoration: underline;
+}
+.main-body {
+    margin-top: 60px;
+}
