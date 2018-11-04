@@ -35,6 +35,10 @@ Create a file called `.env` at the root of this project (don't worry, it won't g
 GOOGLE_KEY=xxxxxx-xxxxxx.apps.googleusercontent.com
 GOOGLE_SECRET=xxxx
 AUTHORIZED_LOGIN_DOMAIN=pagerduty.com
+S3_REGION=us-east-1
+S3_BUCKET=xela-dev
+AWS_ACCESS_KEY_ID=xxxxxx
+AWS_SECRET_ACCESS_KEY=xxxxx
 ```
 
 Replace the values as appropriate. If you don't know the Google settings, check with @mattstratton (if you're a PagerDuty employee; if you're not, you're on your own right now!)
@@ -52,6 +56,10 @@ GOOGLE_SECRET:           xxxxxxxxxxx
 GO_ENV:                  production
 HOST:                    https://xxxx.herokuapp.com
 SESSION_SECRET:          xxxxxxxxxxxxxxxxxx
+S3_REGION:               us-east-1
+S3_BUCKET:               xela-prod
+AWS_ACCESS_KEY_ID:       xxxxxx
+AWS_SECRET_ACCESS_KEY:   xxxxxx
 ```
 
 Deploying to Heroku via Docker uses these commands
