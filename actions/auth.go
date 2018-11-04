@@ -45,15 +45,15 @@ func AuthCallback(c buffalo.Context) error {
 	u.Provider = gu.Provider
 	u.ProviderID = gu.UserID
 	u.Email = nulls.NewString(gu.Email)
-	if err = tx.Save(u); err != nil {
-		return errors.WithStack(err)
-	}
-
 	if userDomain := strings.SplitAfter(gu.Email, "@"); userDomain[1] != os.Getenv("AUTHORIZED_LOGIN_DOMAIN") {
 		c.Session().Clear()
 		c.Flash().Add("danger", "You are not authorized to log in")
 		return c.Redirect(302, "/")
 	}
+	if err = tx.Save(u); err != nil {
+		return errors.WithStack(err)
+	}
+
 	c.Session().Set("current_user_id", u.ID)
 	if err = c.Session().Save(); err != nil {
 		return errors.WithStack(err)
