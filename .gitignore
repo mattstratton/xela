@@ -12,6 +12,7 @@ xela
 .vscode/
 .grifter/
 .env
+uploads/
 # General
 .DS_Store
 .AppleDouble

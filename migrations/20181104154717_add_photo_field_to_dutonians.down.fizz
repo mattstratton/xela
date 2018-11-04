@@ -1,0 +1,1 @@
+drop_column("dutonians", "photo_name")
