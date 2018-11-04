@@ -11,6 +11,76 @@ This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDU
 
 [Powered by Buffalo](http://gobuffalo.io)
 
+## Setup
+
+Right now, this is pretty sparse. A few things:
+
+### Local Dev
+
+Make sure you have [Buffalo](http://gobuffalo.io) installed.
+
+### Local database
+
+You'll need access to a Postgres database set up in the same definition as listed in `database.yml`. I recommend just using docker. Run this command to get the database going (note; you'll lose all the data when Docker goes down)
+
+```
+docker run --rm -it --publish 0.0.0.0:5432:5432 --name pg -e POSTGRES_PASSWORD=postgres postgres:alpine\n\n
+```
+
+### Environment variables
+
+Create a file called `.env` at the root of this project (don't worry, it won't get into git). It should look like this:
+
+```
+GOOGLE_KEY=xxxxxx-xxxxxx.apps.googleusercontent.com
+GOOGLE_SECRET=xxxx
+AUTHORIZED_LOGIN_DOMAIN=pagerduty.com
+```
+
+Replace the values as appropriate. If you don't know the Google settings, check with @mattstratton (if you're a PagerDuty employee; if you're not, you're on your own right now!)
+
+### Heroku setup
+
+The following environment variables must be set in Heroku; should look something like this:
+
+```
+=== pure-taiga-48603 Config Vars
+AUTHORIZED_LOGIN_DOMAIN: pagerduty.com
+DATABASE_URL:            postgres://xxxxxx:xxxxxx@ec2-54-83-49-109.compute-1.amazonaws.com:5432/xxxxx
+GOOGLE_KEY:              xxxxxxxx-xxxxxxxxx.apps.googleusercontent.com
+GOOGLE_SECRET:           xxxxxxxxxxx
+GO_ENV:                  production
+HOST:                    https://xxxx.herokuapp.com
+SESSION_SECRET:          xxxxxxxxxxxxxxxxxx
+```
+
+Deploying to Heroku via Docker uses these commands
+
+#### Initial Setup
+
+(you'll need the [Heroku plugin](https://github.com/gobuffalo/buffalo-heroku) for Buffalo)
+```
+buffalo heroku new
+heroku container:push web
+heroku container:release web
+heroku config:set HOST=xxxx.herokuapp.com
+heroku config:set AUTHORIZED_LOGIN_DOMAIN=pagerduty.com
+heroku config:set GOOGLE_KEY=xxx-xxx.apps.googleusercontent.com
+heroku config:set GOOGLE_SECRET=xxx
+heroku run /bin/app migrate
+heroku open
+```
+
+#### Deployments
+
+After initial setup, deployments can be run via:
+
+```
+heroku container:push web
+heroku container:release web
+heroku run /bin/app migrate
+ ```
+
 ## Authors
 
 - **Matt Stratton** - *Initial work* - [mattstratton](https://github.com/mattstratton)
