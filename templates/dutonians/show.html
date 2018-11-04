@@ -15,7 +15,9 @@
   <strong>Homepage</strong>: <%= dutonian.Homepage %>
 </p>
 
-<i>Created by <%= dutonian.UserID %></i>
+<i>Created on <%= dutonian.CreatedAt.Format("January 02, 2006 15:04:05") %></i>
+<br />
+<i>Last updated on <%= dutonian.UpdatedAt.Format("January 02, 2006 15:04:05") %></i>
 <hr />
 
 <ul class="list-unstyled list-inline">

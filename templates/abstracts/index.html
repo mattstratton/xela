@@ -10,7 +10,7 @@
   <tbody>
     <%= for (abstract) in abstracts { %>
       <tr>
-      <td><%= abstract.Title %></td>
+      <td><a href="<%= abstractPath({ abstract_id: abstract.ID }) %>"><%= abstract.Title %></a></td>
         <td><%= abstract.OneSentenceDescription %></td>
         <td>
           <div class="pull-right">

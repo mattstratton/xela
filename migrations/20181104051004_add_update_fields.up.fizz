@@ -1,0 +1,3 @@
+add_column("abstracts", "updated_by", "uuid", {})
+add_column("events", "updated_by", "uuid", {})
+add_column("dutonians", "updated_by", "uuid", {})

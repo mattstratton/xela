@@ -16,6 +16,7 @@ type Dutonian struct {
 	CreatedAt time.Time    `json:"created_at" db:"created_at"`
 	UpdatedAt time.Time    `json:"updated_at" db:"updated_at"`
 	UserID    uuid.UUID    `json:"user_id" db:"user_id"`
+	UpdatedBy uuid.UUID    `json:"updated_by" db:"updated_by"`
 	Firstname string       `json:"firstname" db:"firstname"`
 	Lastname  string       `json:"lastname" db:"lastname"`
 	Bio       nulls.String `json:"bio" db:"bio"`

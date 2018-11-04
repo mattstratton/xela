@@ -1,0 +1,3 @@
+drop_column("abstracts", "updated_by")
+drop_column("events", "updated_by")
+drop_column("dutonians", "updated_by")

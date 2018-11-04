@@ -16,6 +16,7 @@ type Abstract struct {
 	CreatedAt              time.Time    `json:"created_at" db:"created_at"`
 	UpdatedAt              time.Time    `json:"updated_at" db:"updated_at"`
 	UserID                 uuid.UUID    `json:"user_id" db:"user_id"`
+	UpdatedBy              uuid.UUID    `json:"updated_by" db:"updated_by"`
 	Title                  string       `json:"title" db:"title"`
 	OneSentenceDescription nulls.String `json:"one_sentence_description" db:"one_sentence_description"`
 	ShortDescription       nulls.String `json:"short_description" db:"short_description"`

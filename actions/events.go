@@ -79,18 +79,23 @@ func (v EventsResource) New(c buffalo.Context) error {
 // Create adds a Event to the DB. This function is mapped to the
 // path POST /events
 func (v EventsResource) Create(c buffalo.Context) error {
-	// Allocate an empty Event
-	event := &models.Event{}
-
-	// Bind event to the html form elements
-	if err := c.Bind(event); err != nil {
-		return errors.WithStack(err)
-	}
-
 	// Get the DB connection from the context
 	tx, ok := c.Value("tx").(*pop.Connection)
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
+	}
+
+	user := c.Value("current_user").(*models.User)
+
+	// Allocate an empty Event
+	event := &models.Event{
+		UserID:    user.ID,
+		UpdatedBy: user.ID,
+	}
+
+	// Bind event to the html form elements
+	if err := c.Bind(event); err != nil {
+		return errors.WithStack(err)
 	}
 
 	// Validate the data from the html form
@@ -143,8 +148,12 @@ func (v EventsResource) Update(c buffalo.Context) error {
 		return errors.WithStack(errors.New("no transaction found"))
 	}
 
+	user := c.Value("current_user").(*models.User)
+
 	// Allocate an empty Event
-	event := &models.Event{}
+	event := &models.Event{
+		UpdatedBy: user.ID,
+	}
 
 	if err := tx.Find(event, c.Param("event_id")); err != nil {
 		return c.Error(404, err)

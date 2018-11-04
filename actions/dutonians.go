@@ -90,7 +90,8 @@ func (v DutoniansResource) Create(c buffalo.Context) error {
 
 	// Allocate an empty Dutonian
 	dutonian := &models.Dutonian{
-		UserID: user.ID,
+		UserID:    user.ID,
+		UpdatedBy: user.ID,
 	}
 
 	// Bind dutonian to the html form elements
@@ -148,8 +149,12 @@ func (v DutoniansResource) Update(c buffalo.Context) error {
 		return errors.WithStack(errors.New("no transaction found"))
 	}
 
+	user := c.Value("current_user").(*models.User)
+
 	// Allocate an empty Dutonian
-	dutonian := &models.Dutonian{}
+	dutonian := &models.Dutonian{
+		UpdatedBy: user.ID,
+	}
 
 	if err := tx.Find(dutonian, c.Param("dutonian_id")); err != nil {
 		return c.Error(404, err)
@@ -159,6 +164,8 @@ func (v DutoniansResource) Update(c buffalo.Context) error {
 	if err := c.Bind(dutonian); err != nil {
 		return errors.WithStack(err)
 	}
+
+	dutonian.UpdatedBy = user.ID
 
 	verrs, err := tx.ValidateAndUpdate(dutonian)
 	if err != nil {

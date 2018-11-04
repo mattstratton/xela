@@ -79,18 +79,23 @@ func (v AbstractsResource) New(c buffalo.Context) error {
 // Create adds a Abstract to the DB. This function is mapped to the
 // path POST /abstracts
 func (v AbstractsResource) Create(c buffalo.Context) error {
-	// Allocate an empty Abstract
-	abstract := &models.Abstract{}
-
-	// Bind abstract to the html form elements
-	if err := c.Bind(abstract); err != nil {
-		return errors.WithStack(err)
-	}
-
 	// Get the DB connection from the context
 	tx, ok := c.Value("tx").(*pop.Connection)
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
+	}
+
+	user := c.Value("current_user").(*models.User)
+
+	// Allocate an empty Abstract
+	abstract := &models.Abstract{
+		UserID:    user.ID,
+		UpdatedBy: user.ID,
+	}
+
+	// Bind abstract to the html form elements
+	if err := c.Bind(abstract); err != nil {
+		return errors.WithStack(err)
 	}
 
 	// Validate the data from the html form
@@ -143,8 +148,12 @@ func (v AbstractsResource) Update(c buffalo.Context) error {
 		return errors.WithStack(errors.New("no transaction found"))
 	}
 
+	user := c.Value("current_user").(*models.User)
+
 	// Allocate an empty Abstract
-	abstract := &models.Abstract{}
+	abstract := &models.Abstract{
+		UpdatedBy: user.ID,
+	}
 
 	if err := tx.Find(abstract, c.Param("abstract_id")); err != nil {
 		return c.Error(404, err)

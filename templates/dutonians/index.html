@@ -15,7 +15,7 @@
   <tbody>
     <%= for (dutonian) in dutonians { %>
       <tr>
-        <td><%= dutonian.Firstname %>&nbsp;<%= dutonian.Lastname %></td>
+        <td><a href="<%= dutonianPath({ dutonian_id: dutonian.ID }) %>"><%= dutonian.Firstname %>&nbsp;<%= dutonian.Lastname %></a></td>
         <td>
           <div class="pull-right">
             <a href="<%= dutonianPath({ dutonian_id: dutonian.ID }) %>" class="btn btn-info">View</a>
