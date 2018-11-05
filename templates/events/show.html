@@ -1,6 +1,11 @@
 <div class="page-header">
   <h1><%= event.Title %></h1>
 </div>
+
+<%= if (event.LogoName != "") { %>
+  <a href = "<%= buildS3Url() %>uploads/events/<%= event.LogoName %>"><img class = "img-thumbnail" src = "<%= buildS3Url() %>uploads/events/<%= event.LogoName %>"></a>
+
+<% } %>
 <p>
   <strong>Dates</strong>: <%= event.EventBeginDate.Format("January 02, 2006 15:04:05") %> - <%= event.EventEndDate.Format("January 02, 2006") %>
 </p>

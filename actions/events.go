@@ -98,6 +98,8 @@ func (v EventsResource) Create(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
+	event.LogoName = event.Logo.Filename
+
 	// Validate the data from the html form
 	verrs, err := tx.ValidateAndCreate(event)
 	if err != nil {
@@ -164,6 +166,9 @@ func (v EventsResource) Update(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
+	if event.Logo.Valid() {
+		event.LogoName = event.Logo.Filename
+	}
 	verrs, err := tx.ValidateAndUpdate(event)
 	if err != nil {
 		return errors.WithStack(err)
