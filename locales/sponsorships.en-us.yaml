@@ -1,0 +1,6 @@
+- id: "sponsorship.created.success"
+  translation: "Sponsorship was successfully created."
+- id: "sponsorship.updated.success"
+  translation: "Sponsorship was successfully updated."
+- id: "sponsorship.destroyed.success"
+  translation: "Sponsorship was successfully destroyed."

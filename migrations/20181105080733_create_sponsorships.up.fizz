@@ -1,0 +1,17 @@
+create_table("sponsorships") {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("event_id", "uuid", {})
+	t.Column("user_id", "uuid", {})
+	t.Column("updated_by", "uuid", {})
+	t.Column("status", "string", {})
+	t.Column("type", "text", {"null": true})
+	t.Column("benefits", "text", {"null": true})
+	t.Column("costs", "integer", {"null": true})
+	t.Column("budget_quarter", "text", {"null": true})
+	t.Column("sponsor_contact_name", "text", {"null": true})
+	t.Column("sponsor_contact_email", "text", {"null": true})
+	t.Column("sponsor_contact_phone", "text", {"null": true})
+	t.Column("staff", "text", {"null": true})
+	t.Column("registration_code", "text", {"null": true})
+	t.Column("notes", "text", {"null": true})
+}

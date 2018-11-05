@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1><%= getEventName(sponsorship.EventID) %></h1>
+</div>
+
+<p>
+  <strong>Event</strong>: <%= getEventName(sponsorship.EventID) %>&nbsp;<a href="<%= eventsPath() %><%= sponsorship.EventID %>"><i class="fa fa-external-link" aria-hidden="true"></i></a>
+</p>
+<p>
+  <strong>Status</strong>: <%= sponsorship.Status %>
+</p>
+<p>
+  <strong>Type</strong>: <%= sponsorship.Type %>
+</p>
+<p>
+  <strong>Benefits</strong>: <%= sponsorship.Benefits %>
+</p>
+<p>
+  <strong>Costs</strong>: <%= sponsorship.Costs %>
+</p>
+<p>
+  <strong>BudgetQuarter</strong>: <%= sponsorship.BudgetQuarter %>
+</p>
+<p>
+  <strong>SponsorContactName</strong>: <%= sponsorship.SponsorContactName %>
+</p>
+<p>
+  <strong>SponsorContactEmail</strong>: <%= sponsorship.SponsorContactEmail %>
+</p>
+<p>
+  <strong>SponsorContactPhone</strong>: <%= sponsorship.SponsorContactPhone %>
+</p>
+<p>
+  <strong>Staff</strong>: <%= markdown(sponsorship.Staff.String) %>
+</p>
+<p>
+  <strong>RegistrationCode</strong>: <%= sponsorship.RegistrationCode %>
+</p>
+<p>
+  <strong>Notes</strong>: <%= sponsorship.Notes %>
+</p>
+
+<hr />
+
+<div class = "row">
+    <div class = "col-md-8">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="<%= sponsorshipsPath() %>" class="btn btn-info"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all sponsorships&nbsp;</a></li>
+            <li class="list-inline-item"><a href="<%= editSponsorshipPath({ sponsorship_id: sponsorship.ID })%>" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
+            <li class="list-inline-item"><a href="<%= sponsorshipPath({ sponsorship_id: sponsorship.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
+          </ul>
+    </div>
+    <div class = "col-md-4 meta-text">
+        <i>Created on <%= sponsorship.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(sponsorship.UserID) %></i>
+        <br />
+        <i>Last updated on <%= sponsorship.UpdatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(sponsorship.UpdatedBy) %></i>
+    </div>
+</div>

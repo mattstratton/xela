@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1>Sponsorships</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newSponsorshipsPath() %>" class="btn btn-primary">Create New Sponsorship</a></li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+  <th>EventID</th>
+    <th>UserID</th>
+    <th>UpdatedBy</th>
+    <th>Status</th>
+    <th>Costs</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (sponsorship) in sponsorships { %>
+      <tr>
+      <td><%= sponsorship.EventID %></td>
+        <td><%= sponsorship.UserID %></td>
+        <td><%= sponsorship.UpdatedBy %></td>
+        <td><%= sponsorship.Status %></td>
+        <td><%= sponsorship.Costs %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= sponsorshipPath({ sponsorship_id: sponsorship.ID }) %>" class="btn btn-info">View</a>
+            <a href="<%= editSponsorshipPath({ sponsorship_id: sponsorship.ID }) %>" class="btn btn-warning">Edit</a>
+            <a href="<%= sponsorshipPath({ sponsorship_id: sponsorship.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>
