@@ -14,6 +14,8 @@ type Proposal struct {
 	ID         uuid.UUID `json:"id" db:"id"`
 	CreatedAt  time.Time `json:"created_at" db:"created_at"`
 	UpdatedAt  time.Time `json:"updated_at" db:"updated_at"`
+	UserID     uuid.UUID `json:"user_id" db:"user_id"`
+	UpdatedBy  uuid.UUID `json:"updated_by" db:"updated_by"`
 	SpeakerID  uuid.UUID `json:"speaker_id" db:"speaker_id"`
 	AbstractID uuid.UUID `json:"abstract_id" db:"abstract_id"`
 	EventID    uuid.UUID `json:"event_id" db:"event_id"`
