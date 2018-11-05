@@ -1,22 +1,33 @@
 <div class="page-header">
-  <h1>Proposal#Show</h1>
+  <h1><%= getSpeakerName(proposal.SpeakerID) %> - <%= getAbstractName(proposal.AbstractID) %></h1>
 </div>
 
-<ul class="list-unstyled list-inline">
-  <li class="list-inline-item"><a href="<%= proposalsPath() %>" class="btn btn-info">Back to all Proposals</a></li>
-  <li class="list-inline-item"><a href="<%= editProposalPath({ proposal_id: proposal.ID })%>" class="btn btn-warning">Edit</a></li>
-  <li class="list-inline-item"><a href="<%= proposalPath({ proposal_id: proposal.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
-</ul>
+<p>
+  <strong>Speaker</strong>: <a href="<%= dutoniansPath() %><%= proposal.SpeakerID %>"><%= getSpeakerName(proposal.SpeakerID) %></a>
+</p>
+<p>
+  <strong>Abstract</strong>: <a href="<%= abstractsPath() %><%= proposal.AbstractID %>"><%= getAbstractName(proposal.AbstractID) %></a>
+</p>
+<p>
+  <strong>Event</strong>: <a href="<%= eventsPath() %><%= proposal.EventID %>"><%= getEventName(proposal.EventID) %></a>
+</p>
+<p>
+  <strong>Proposal Status</strong>: <%= proposal.Status %>
+</p>
 
-<p>
-  <strong>SpeakerID</strong>: <%= proposal.SpeakerID %>
-</p>
-<p>
-  <strong>AbstractID</strong>: <%= proposal.AbstractID %>
-</p>
-<p>
-  <strong>EventID</strong>: <%= proposal.EventID %>
-</p>
-<p>
-  <strong>Status</strong>: <%= proposal.Status %>
-</p>
+<hr />
+
+<div class = "row">
+    <div class = "col-md-8">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="<%= proposalsPath() %>" class="btn btn-info"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all proposals&nbsp;</a></li>
+            <li class="list-inline-item"><a href="<%= editProposalPath({ proposal_id: proposal.ID })%>" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
+            <li class="list-inline-item"><a href="<%= proposalPath({ proposal_id: proposal.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
+          </ul>
+    </div>
+    <div class = "col-md-4 meta-text">
+        <i>Created on <%= proposal.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(proposal.UserID) %></i>
+        <br />
+        <i>Last updated on <%= proposal.UpdatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(proposal.UpdatedBy) %></i>
+    </div>
+</div>

@@ -27,14 +27,19 @@
   <strong>Attendance</strong>: <%= event.Attendance %>
 </p>
 
-<br />
-<i>Created on <%= event.CreatedAt.Format("January 02, 2006 15:04:05") %></i>
-<br />
-<i>Last updated on <%= event.UpdatedAt.Format("January 02, 2006 15:04:05") %></i>
 <hr />
 
-<ul class="list-unstyled list-inline">
-  <li class="list-inline-item"><a href="<%= eventsPath() %>" class="btn btn-info">Back to all Events</a></li>
-  <li class="list-inline-item"><a href="<%= editEventPath({ event_id: event.ID })%>" class="btn btn-warning">Edit</a></li>
-  <li class="list-inline-item"><a href="<%= eventPath({ event_id: event.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
-</ul>
+<div class = "row">
+    <div class = "col-md-8">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="<%= eventsPath() %>" class="btn btn-info"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all events&nbsp;</a></li>
+            <li class="list-inline-item"><a href="<%= editEventPath({ event_id: event.ID })%>" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
+            <li class="list-inline-item"><a href="<%= eventPath({ event_id: event.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
+          </ul>
+    </div>
+    <div class = "col-md-4 meta-text">
+        <i>Created on <%= event.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(event.UserID) %></i>
+        <br />
+        <i>Last updated on <%= event.UpdatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(event.UpdatedBy) %></i>
+    </div>
+</div>

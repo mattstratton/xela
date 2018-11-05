@@ -39,13 +39,20 @@
 </p>
 <% } %>
 
-<i>Created on <%= dutonian.CreatedAt.Format("January 02, 2006 15:04:05") %></i>
-<br />
-<i>Last updated on <%= dutonian.UpdatedAt.Format("January 02, 2006 15:04:05") %></i>
 <hr />
 
-<ul class="list-unstyled list-inline">
-  <li class="list-inline-item"><a href="<%= dutoniansPath() %>" class="btn btn-info">Back to all Dutonians</a></li>
-  <li class="list-inline-item"><a href="<%= editDutonianPath({ dutonian_id: dutonian.ID })%>" class="btn btn-warning">Edit</a></li>
-  <li class="list-inline-item"><a href="<%= dutonianPath({ dutonian_id: dutonian.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
-</ul>
+<div class = "row">
+    <div class = "col-md-8">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="<%= dutoniansPath() %>" class="btn btn-info"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all Dutonians&nbsp;</a></li>
+            <li class="list-inline-item"><a href="<%= editDutonianPath({ dutonian_id: dutonian.ID })%>" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
+            <li class="list-inline-item"><a href="<%= dutonianPath({ dutonian_id: dutonian.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
+          </ul>
+    </div>
+    <div class = "col-md-4 meta-text">
+        <i>Created on <%= dutonian.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(dutonian.UserID) %></i>
+        <br />
+        <i>Last updated on <%= dutonian.UpdatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(dutonian.UpdatedBy) %></i>
+    </div>
+</div>
+

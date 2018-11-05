@@ -107,18 +107,23 @@ func (v ProposalsResource) New(c buffalo.Context) error {
 // Create adds a Proposal to the DB. This function is mapped to the
 // path POST /proposals
 func (v ProposalsResource) Create(c buffalo.Context) error {
-	// Allocate an empty Proposal
-	proposal := &models.Proposal{}
-
-	// Bind proposal to the html form elements
-	if err := c.Bind(proposal); err != nil {
-		return errors.WithStack(err)
-	}
 
 	// Get the DB connection from the context
 	tx, ok := c.Value("tx").(*pop.Connection)
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
+	}
+	user := c.Value("current_user").(*models.User)
+
+	// Allocate an empty Proposal
+	proposal := &models.Proposal{
+		UserID:    user.ID,
+		UpdatedBy: user.ID,
+	}
+
+	// Bind proposal to the html form elements
+	if err := c.Bind(proposal); err != nil {
+		return errors.WithStack(err)
 	}
 
 	// Validate the data from the html form
@@ -201,9 +206,12 @@ func (v ProposalsResource) Update(c buffalo.Context) error {
 	if !ok {
 		return errors.WithStack(errors.New("no transaction found"))
 	}
+	user := c.Value("current_user").(*models.User)
 
 	// Allocate an empty Proposal
-	proposal := &models.Proposal{}
+	proposal := &models.Proposal{
+		UpdatedBy: user.ID,
+	}
 
 	if err := tx.Find(proposal, c.Param("proposal_id")); err != nil {
 		return c.Error(404, err)

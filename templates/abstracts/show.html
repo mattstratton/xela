@@ -26,13 +26,19 @@
   <strong>Talk Type</strong>: <%= capitalize(abstract.TalkType.String) %>
 </p>
 
-<i>Created on <%= abstract.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail() %></i>
-<br />
-<i>Last updated on <%= abstract.UpdatedAt.Format("January 02, 2006 15:04:05") %></i>
 <hr />
 
-<ul class="list-unstyled list-inline">
-  <li class="list-inline-item"><a href="<%= abstractsPath() %>" class="btn btn-info">Back to all Abstracts</a></li>
-  <li class="list-inline-item"><a href="<%= editAbstractPath({ abstract_id: abstract.ID })%>" class="btn btn-warning">Edit</a></li>
-  <li class="list-inline-item"><a href="<%= abstractPath({ abstract_id: abstract.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
-</ul>
+<div class = "row">
+    <div class = "col-md-8">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="<%= abstractsPath() %>" class="btn btn-info"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all Abstracts&nbsp;</a></li>
+            <li class="list-inline-item"><a href="<%= editAbstractPath({ abstract_id: abstract.ID })%>" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
+            <li class="list-inline-item"><a href="<%= abstractPath({ abstract_id: abstract.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
+          </ul>
+    </div>
+    <div class = "col-md-4 meta-text">
+        <i>Created on <%= abstract.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(abstract.UserID) %></i>
+        <br />
+        <i>Last updated on <%= abstract.UpdatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(abstract.UpdatedBy) %></i>
+    </div>
+</div>

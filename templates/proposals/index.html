@@ -7,18 +7,18 @@
 
 <table class="table table-striped">
   <thead>
-  <th>SpeakerID</th>
-    <th>AbstractID</th>
-    <th>EventID</th>
+  <th>Speaker</th>
+    <th>Abstract</th>
+    <th>Event</th>
     <th>Status</th>
     <th>&nbsp;</th>
   </thead>
   <tbody>
     <%= for (proposal) in proposals { %>
       <tr>
-      <td><%= proposal.SpeakerID %></td>
-        <td><%= proposal.AbstractID %></td>
-        <td><%= proposal.EventID %></td>
+      <td><a href="<%= dutoniansPath() %><%= proposal.SpeakerID %>"><%= getSpeakerName(proposal.SpeakerID) %></a></td>
+        <td><a href="<%= abstractsPath() %><%= proposal.AbstractID %>"><%= getAbstractName(proposal.AbstractID) %></a></td>
+        <td><a href="<%= eventsPath() %><%= proposal.EventID %>"><%= getEventName(proposal.EventID) %></a>
         <td><%= proposal.Status %></td>
         <td>
           <div class="pull-right">
