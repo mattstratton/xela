@@ -169,7 +169,9 @@ func (v DutoniansResource) Update(c buffalo.Context) error {
 
 	// to solve for this, don't allow filename to be null, but if it's not set then maybe set it to ""
 	dutonian.UpdatedBy = user.ID
-	dutonian.PhotoName = dutonian.Photo.Filename
+	if dutonian.Photo.Valid() {
+		dutonian.PhotoName = dutonian.Photo.Filename
+	}
 
 	verrs, err := tx.ValidateAndUpdate(dutonian)
 	if err != nil {
