@@ -15,7 +15,7 @@
     </div>
     <div class = "col-md-4">
         <%= if (dutonian.PhotoName != "") { %>
-            <a href = "https://s3.amazonaws.com/xela-dev/uploads/dutonians/<%= dutonian.Lastname %>/<%= dutonian.Firstname %>/<%= dutonian.PhotoName %>"><img class = "img-thumbnail" src = "https://s3.amazonaws.com/xela-dev/uploads/dutonians/<%= dutonian.Lastname %>/<%= dutonian.Firstname %>/<%= dutonian.PhotoName %>"></a>
+            <a href = "<%= buildS3Url %>uploads/dutonians/<%= dutonian.Lastname %>/<%= dutonian.Firstname %>/<%= dutonian.PhotoName %>"><img class = "img-thumbnail" src = "https://s3.amazonaws.com/xela-dev/uploads/dutonians/<%= dutonian.Lastname %>/<%= dutonian.Firstname %>/<%= dutonian.PhotoName %>"></a>
         
         <% } %>
     </div>

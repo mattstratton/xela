@@ -1,6 +1,9 @@
 package actions
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/buffalo/render"
 	"github.com/gobuffalo/packr"
@@ -45,6 +48,9 @@ func init() {
 				// 	return "mstratton@pagerduty.com"
 				// }
 				return "mstratton@pagerduty.com"
+			},
+			"buildS3Url": func() string {
+				return fmt.Sprintf("https://s3.%s.amazonaws.com/%s/", os.Getenv("S3_REGION"), os.Getenv("S3_BUCKET"))
 			},
 		},
 	})
