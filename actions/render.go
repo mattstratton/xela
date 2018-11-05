@@ -103,7 +103,22 @@ func init() {
 				} else {
 					return event.Title, nil
 				}
+			},
+			"getEventLocation": func(eventID uuid.UUID, c plush.HelperContext) (string, error) {
+				// Get the DB connection from the context
+				tx, ok := c.Value("tx").(*pop.Connection)
+				if !ok {
+					return "", errors.WithStack(errors.New("no transaction found"))
+				}
 
+				event := &models.Event{}
+
+				err := tx.Find(event, eventID)
+				if err != nil {
+					return "", errors.WithStack(errors.New("query error"))
+				} else {
+					return event.Location.String, nil
+				}
 			},
 		},
 	})

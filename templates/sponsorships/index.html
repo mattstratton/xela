@@ -7,21 +7,17 @@
 
 <table class="table table-striped">
   <thead>
-  <th>EventID</th>
-    <th>UserID</th>
-    <th>UpdatedBy</th>
+  <th>Event</th>
     <th>Status</th>
-    <th>Costs</th>
+    <th>Location</th>
     <th>&nbsp;</th>
   </thead>
   <tbody>
     <%= for (sponsorship) in sponsorships { %>
       <tr>
-      <td><%= sponsorship.EventID %></td>
-        <td><%= sponsorship.UserID %></td>
-        <td><%= sponsorship.UpdatedBy %></td>
+      <td><%= getEventName(sponsorship.EventID) %></td>
         <td><%= sponsorship.Status %></td>
-        <td><%= sponsorship.Costs %></td>
+        <td><%=getEventLocation(sponsorship.EventID) %></td>
         <td>
           <div class="pull-right">
             <a href="<%= sponsorshipPath({ sponsorship_id: sponsorship.ID }) %>" class="btn btn-info">View</a>
