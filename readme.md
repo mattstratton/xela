@@ -59,7 +59,7 @@ SESSION_SECRET:          xxxxxxxxxxxxxxxxxx
 S3_REGION:               us-east-1
 S3_BUCKET:               xela-prod
 AWS_ACCESS_KEY_ID:       xxxxxx
-AWS_SECRET_ACCESS_KEY:   xxxxxx
+AWS_SECRET_ACCESS_KEY:   xxxxxxx
 ```
 
 Deploying to Heroku via Docker uses these commands
@@ -87,7 +87,7 @@ After initial setup, deployments can be run via:
 heroku container:push web
 heroku container:release web
 heroku run /bin/app migrate
- ```
+```
 
 ## Authors
 

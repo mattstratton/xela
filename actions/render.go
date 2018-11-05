@@ -4,9 +4,14 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/PagerDuty/xela/models"
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/buffalo/render"
 	"github.com/gobuffalo/packr"
+	"github.com/gobuffalo/plush"
+	"github.com/gobuffalo/pop"
+	"github.com/gofrs/uuid"
+	"github.com/pkg/errors"
 )
 
 var r *render.Engine
@@ -48,6 +53,23 @@ func init() {
 				// 	return "mstratton@pagerduty.com"
 				// }
 				return "mstratton@pagerduty.com"
+			},
+			"getSpeakerName": func(dutonianID uuid.UUID, c plush.HelperContext) (string, error) {
+				// Get the DB connection from the context
+				tx, ok := c.Value("tx").(*pop.Connection)
+				if !ok {
+					return "", errors.WithStack(errors.New("no transaction found"))
+				}
+
+				dutonian := &models.Dutonian{}
+
+				err := tx.Find(&dutonian, dutonianID)
+				if err != nil {
+					return "", errors.WithStack(errors.New("query error"))
+				} else {
+					return "Matt Stratton", nil
+				}
+
 			},
 			"buildS3Url": func() string {
 				return fmt.Sprintf("https://s3.%s.amazonaws.com/%s/", os.Getenv("S3_REGION"), os.Getenv("S3_BUCKET"))

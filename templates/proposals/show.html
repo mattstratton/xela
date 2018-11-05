@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Proposal#Show</h1>
+</div>
+
+<ul class="list-unstyled list-inline">
+  <li class="list-inline-item"><a href="<%= proposalsPath() %>" class="btn btn-info">Back to all Proposals</a></li>
+  <li class="list-inline-item"><a href="<%= editProposalPath({ proposal_id: proposal.ID })%>" class="btn btn-warning">Edit</a></li>
+  <li class="list-inline-item"><a href="<%= proposalPath({ proposal_id: proposal.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+</ul>
+
+<p>
+  <strong>SpeakerID</strong>: <%= proposal.SpeakerID %>
+</p>
+<p>
+  <strong>AbstractID</strong>: <%= proposal.AbstractID %>
+</p>
+<p>
+  <strong>EventID</strong>: <%= proposal.EventID %>
+</p>
+<p>
+  <strong>Status</strong>: <%= proposal.Status %>
+</p>

@@ -24,6 +24,16 @@ type Abstract struct {
 	TalkType               nulls.String `json:"talk_type" db:"talk_type"`
 }
 
+// SelectLabel - label for select tag options
+func (a Abstract) SelectLabel() string {
+	return a.Title
+}
+
+// SelectValue - value for select tag options
+func (a Abstract) SelectValue() interface{} {
+	return a.ID
+}
+
 // String is not required by pop and may be deleted
 func (a Abstract) String() string {
 	ja, _ := json.Marshal(a)

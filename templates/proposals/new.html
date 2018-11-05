@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>New Proposal</h1>
+</div>
+
+<%= form_for(proposal, {action: "/proposals" , method: "POST"}) { %>
+  <%= partial("proposals/form.html") %>
+  <a href="/proposals" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+<% } %>

@@ -74,6 +74,7 @@ func App() *buffalo.App {
 		app.Resource("/dutonians", DutoniansResource{})
 		app.Resource("/events", EventsResource{})
 		app.Resource("/abstracts", AbstractsResource{})
+		app.Resource("/proposals", ProposalsResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 

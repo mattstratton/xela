@@ -1,0 +1,6 @@
+- id: "proposal.created.success"
+  translation: "Proposal was successfully created."
+- id: "proposal.updated.success"
+  translation: "Proposal was successfully updated."
+- id: "proposal.destroyed.success"
+  translation: "Proposal was successfully destroyed."

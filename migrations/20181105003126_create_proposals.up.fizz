@@ -1,0 +1,7 @@
+create_table("proposals") {
+	t.Column("id", "uuid", {"primary": true})
+	t.Column("speaker_id", "uuid", {})
+	t.Column("abstract_id", "uuid", {})
+	t.Column("event_id", "uuid", {})
+	t.Column("status", "string", {})
+}

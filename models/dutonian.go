@@ -3,6 +3,7 @@ package models
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -36,6 +37,16 @@ type Dutonian struct {
 	Homepage  nulls.String `json:"homepage" db:"homepage"`
 	Photo     binding.File `db:"-"`
 	PhotoName string       `json:"photo_name" db:"photo_name"`
+}
+
+// SelectLabel - label for select tag options
+func (d Dutonian) SelectLabel() string {
+	return fmt.Sprintf("%s %s", d.Firstname, d.Lastname)
+}
+
+// SelectValue - value for select tag options
+func (d Dutonian) SelectValue() interface{} {
+	return d.ID
 }
 
 // String is not required by pop and may be deleted
