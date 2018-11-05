@@ -1,5 +1,6 @@
 .footer {
     background: #444;
+    font-family: colfax-medium, Helvetica, "Helvetica Neue", sans-serif;
 }
 
 .header {
@@ -28,4 +29,13 @@
 
 .meta-text {
     font-size: small;
+}
+
+.footer-link {
+    font-family: colfax-medium, Helvetica, "Helvetica Neue", sans-serif;
+    color: #fff;
+}
+.footer-link:hover {
+    color: #FFF;
+    text-decoration: underline;
 }
