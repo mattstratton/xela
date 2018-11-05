@@ -18,6 +18,8 @@ type Event struct {
 	UserID           uuid.UUID    `json:"user_id" db:"user_id"`
 	UpdatedBy        uuid.UUID    `json:"updated_by" db:"updated_by"`
 	Title            string       `json:"title" db:"title"`
+	EventBeginDate   nulls.Time   `json:"event_begin_date" db:"event_begin_date"`
+	EventEndDate     nulls.Time   `json:"event_end_date" db:"event_end_date"`
 	Location         nulls.String `json:"location" db:"location"`
 	HomePage         nulls.String `json:"home_page" db:"home_page"`
 	SchedulePage     nulls.String `json:"schedule_page" db:"schedule_page"`

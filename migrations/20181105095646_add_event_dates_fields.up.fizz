@@ -1,0 +1,2 @@
+add_column("events", "event_begin_date", "timestamp", {"null": true})
+add_column("events", "event_end_date", "timestamp", {"null": true})

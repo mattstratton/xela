@@ -1,32 +1,47 @@
 <div class="page-header">
   <h1><%= event.Title %></h1>
 </div>
-
 <p>
-  <strong>Location</strong>: <%= event.Location %>
+  <strong>Dates</strong>: <%= event.EventBeginDate.Format("January 02, 2006 15:04:05") %> - <%= event.EventEndDate.Format("January 02, 2006") %>
 </p>
-<p>
-  <strong>HomePage</strong>: <a href = "<%= event.HomePage %>"><%= event.HomePage %></a>
-</p>
-<p>
-  <strong>SchedulePage</strong>: <%= event.SchedulePage %>
-</p>
-<p>
-  <strong>SponsorPage</strong>: <%= event.SponsorPage %>
-</p>
-<p>
-  <strong>CfpPage</strong>: <%= event.CfpPage %>
-</p>
-<p>
-  <strong>RegistrationPage</strong>: <%= event.RegistrationPage %>
-</p>
-<p>
-  <strong>EventReport</strong>: <%= event.EventReport %>
-</p>
-<p>
-  <strong>Attendance</strong>: <%= event.Attendance %>
-</p>
-
+<%= if (event.Location.String != "") { %>
+  <p>
+    <strong>Location</strong>: <%= event.Location %>
+  </p>
+<% } %>
+<%= if (event.HomePage.String != "") { %>
+  <p>
+    <strong>Home Page</strong>: <a href = "<%= event.HomePage %>"><%= event.HomePage %></a>
+  </p>
+<% } %>
+<%= if (event.SchedulePage.String != "") { %>
+  <p>
+    <strong>Schedule Page</strong>: <%= event.SchedulePage %>
+  </p>
+<% } %>
+<%= if (event.SponsorPage.String != "") { %>
+  <p>
+    <strong>Sponsor Page</strong>: <%= event.SponsorPage %>
+  </p>
+<% } %>
+<%= if (event.CfpPage.String != "") { %>
+  <p>
+    <strong>CFP Page</strong>: <%= event.CfpPage %>
+  </p>
+<% } %>
+<%= if (event.RegistrationPage.String != "") { %>
+  <p>
+    <strong>Registration Page</strong>: <%= event.RegistrationPage %>
+  </p>
+<% } %>
+<%= if (event.EventReport.String != "") { %>
+  <p>
+    <strong>Event Report</strong>: <%= event.EventReport %>
+  </p>
+<% } %>
+  <p>
+    <strong>Attendance</strong>: <%= event.Attendance %>
+  </p>
 <hr />
 
 <div class = "row">
