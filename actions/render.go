@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"github.com/PagerDuty/xela/models"
-	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/buffalo/render"
 	"github.com/gobuffalo/packr"
 	"github.com/gobuffalo/plush"
@@ -34,25 +33,23 @@ func init() {
 			"checkNull": func() {
 
 			},
-			"getUserEmail": func(c buffalo.Context) string {
+			"getUserEmail": func(userID uuid.UUID, c plush.HelperContext) (string, error) {
 
-				// // Get the DB connection from the context
-				// tx := c.Value("tx").(*pop.Connection)
-				// user_id := "c2fbcdfc-3b19-410d-bd43-a2f18b6b309e"
-				// // Allocate an empty User
-				// user := &models.User{}
+				// Get the DB connection from the context
+				tx, ok := c.Value("tx").(*pop.Connection)
+				if !ok {
+					return "", errors.WithStack(errors.New("no transaction found"))
+				}
+				// Allocate an empty User
+				user := &models.User{}
 
-				// // To find the User the parameter user_id is used.
-				// err := tx.Find(&user, user_id)
+				// To find the User the parameter user_id is used.
+				err := tx.Find(user, userID)
 
-				// if err != nil {
-				// 	return "error"
-				// } else {
-
-				// 	// return user.Email.String
-				// 	return "mstratton@pagerduty.com"
-				// }
-				return "mstratton@pagerduty.com"
+				if err != nil {
+					return "", errors.WithStack(errors.New("query error"))
+				}
+				return user.Email.String, nil
 			},
 			"getSpeakerName": func(dutonianID uuid.UUID, c plush.HelperContext) (string, error) {
 				// Get the DB connection from the context
@@ -63,16 +60,50 @@ func init() {
 
 				dutonian := &models.Dutonian{}
 
-				err := tx.Find(&dutonian, dutonianID)
+				err := tx.Find(dutonian, dutonianID)
 				if err != nil {
 					return "", errors.WithStack(errors.New("query error"))
 				} else {
-					return "Matt Stratton", nil
+					return fmt.Sprintf("%s %s", dutonian.Firstname, dutonian.Lastname), nil
 				}
 
 			},
 			"buildS3Url": func() string {
 				return fmt.Sprintf("https://s3.%s.amazonaws.com/%s/", os.Getenv("S3_REGION"), os.Getenv("S3_BUCKET"))
+			},
+			"getAbstractName": func(abstractID uuid.UUID, c plush.HelperContext) (string, error) {
+				// Get the DB connection from the context
+				tx, ok := c.Value("tx").(*pop.Connection)
+				if !ok {
+					return "", errors.WithStack(errors.New("no transaction found"))
+				}
+
+				abstract := &models.Abstract{}
+
+				err := tx.Find(abstract, abstractID)
+				if err != nil {
+					return "", errors.WithStack(errors.New("query error"))
+				} else {
+					return abstract.Title, nil
+				}
+
+			},
+			"getEventName": func(eventID uuid.UUID, c plush.HelperContext) (string, error) {
+				// Get the DB connection from the context
+				tx, ok := c.Value("tx").(*pop.Connection)
+				if !ok {
+					return "", errors.WithStack(errors.New("no transaction found"))
+				}
+
+				event := &models.Event{}
+
+				err := tx.Find(event, eventID)
+				if err != nil {
+					return "", errors.WithStack(errors.New("query error"))
+				} else {
+					return event.Title, nil
+				}
+
 			},
 		},
 	})
