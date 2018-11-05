@@ -99,6 +99,8 @@ func (v DutoniansResource) Create(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
+	dutonian.PhotoName = dutonian.Photo.Filename
+
 	// Validate the data from the html form
 	verrs, err := tx.ValidateAndCreate(dutonian)
 	if err != nil {
