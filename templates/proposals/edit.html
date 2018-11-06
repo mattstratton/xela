@@ -1,4 +1,4 @@
 <%= form_for(proposal, {action: "/proposals/" +  proposal.ID, method: "PUT"}) { %>
   <%= partial("proposals/form.html") %>
-  <a href="/proposals" class="btn btn-warning" data-confirm="Are you sure?">Cancel</a>
+  <a href="/proposals" class="btn btn-warning btn-sm" data-confirm="Are you sure?">Cancel</a>
 <% } %>

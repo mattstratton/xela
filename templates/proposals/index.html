@@ -2,7 +2,7 @@
   <h1>Proposals</h1>
 </div>
 <ul class="list-unstyled list-inline">
-  <li><a href="<%= newProposalsPath() %>" class="btn btn-primary">Create New Proposal</a></li>
+  <li><a href="<%= newProposalsPath() %>" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg fa-file-text"></i>Create New Proposal</a></li>
 </ul>
 
 <table class="table table-striped">
@@ -22,9 +22,9 @@
         <td><%= proposal.Status %></td>
         <td>
           <div class="pull-right">
-            <a href="<%= proposalPath({ proposal_id: proposal.ID }) %>" class="btn btn-info">View</a>
-            <a href="<%= editProposalPath({ proposal_id: proposal.ID }) %>" class="btn btn-warning">Edit</a>
-            <a href="<%= proposalPath({ proposal_id: proposal.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+            <a href="<%= proposalPath({ proposal_id: proposal.ID }) %>" class="btn btn-info btn-sm"><i class="fa fa-fw fa-lg fa-eye"></i></a>
+            <a href="<%= editProposalPath({ proposal_id: proposal.ID }) %>" class="btn btn-warning btn-sm"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i></a>
+            <a href="<%= proposalPath({ proposal_id: proposal.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-lg fa-trash"></i></a>
           </div>
         </td>
       </tr>
