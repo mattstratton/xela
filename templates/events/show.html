@@ -2,64 +2,40 @@
   <div class = "col-md-8">
       <h1><%= event.Title %></h1>
       <!-- put all the other stuff here-->
+      
       <div class = "row">
         <div class = "col-md-12">
-          <strong>Dates</strong>: <%= event.EventBeginDate.Format("January 02, 2006 15:04:05") %> - <%= event.EventEndDate.Format("January 02, 2006") %>
+          <%= event.EventBeginDate.Format("January 02, 2006 15:04:05") %> - <%= event.EventEndDate.Format("January 02, 2006") %>
         </div>
       </div>
+
+      <ul class="list-group list-group-flush">
+
       <%= if (event.Location.String != "") { %>
-        <div class = "row">
-          <div class = "col-md-12">
-            <strong>Location</strong>: <%= event.Location %>
-          </div>
-        </div>
+            <li class="list-group-item"><strong>Location</strong>: <%= event.Location %></li>
       <% } %>
       <%= if (event.HomePage.String != "") { %>
-        <div class = "row">
-          <div class = "col-md-12">
-            <strong>Home Page</strong>: <a href = "<%= event.HomePage %>"><%= event.HomePage %></a>
-          </div>
-        </div>
+            <li class="list-group-item"><strong>Home Page</strong>: <a href = "<%= event.HomePage %>"><%= event.HomePage %></a></li>
       <% } %>
       <%= if (event.SchedulePage.String != "") { %>
-        <div class = "row">
-          <div class = "col-md-12">
-            <strong>Schedule Page</strong>: <a href = "<%= event.SchedulePage %>"><%= event.SchedulePage %></a>
-          </div>
-        </div>
+            <li class="list-group-item"><strong>Schedule Page</strong>: <a href = "<%= event.SchedulePage %>"><%= event.SchedulePage %></a></li>
       <% } %>
       <%= if (event.SponsorPage.String != "") { %>
-        <div class = "row">
-          <div class = "col-md-12">
-            <strong>Sponsor Page</strong>: <a href = "<%= event.SponsorPage %>"><%= event.SponsorPage %></a>
-          </div>
-        </div>
+            <li class="list-group-item"><strong>Sponsor Page</strong>: <a href = "<%= event.SponsorPage %>"><%= event.SponsorPage %></a></li>
       <% } %>
       <%= if (event.CfpPage.String != "") { %>
-        <div class = "row">
-          <div class = "col-md-12">
-            <strong>CFP Page</strong>: <%= event.CfpPage %>
-          </div>
-        </div>
+            <li class="list-group-item"><strong>CFP Page</strong>: <a href = "<%= event.CfpPage %>"><%= event.CfpPage %></li></a>
       <% } %>
       <%= if (event.RegistrationPage.String != "") { %>
-        <p>
-          <strong>Registration Page</strong>: <%= event.RegistrationPage %>
-        </div></div>
+          <li class="list-group-item"><strong>Registration Page</strong>: <a href = "<%= event.CfpPage %>"><%= event.RegistrationPage %></a></li>
       <% } %>
       <%= if (event.EventReport.String != "") { %>
-        <div class = "row">
-          <div class = "col-md-12">
-          <strong>Event Report</strong>: <%= event.EventReport %>
-        </div></div>
+            <li class="list-group-item"><strong>Event Report</strong>: <a href = "<%= event.CfpPage %>"><%= event.EventReport %></a></li>
       <% } %>
       <%= if (event.Attendance != null) { %>
-      <div class = "row">
-        <div class = "col-md-12">
-          <strong>Attendance</strong>: <%= event.Attendance %>
-        </div>
-      </div>
+        <li class="list-group-item"><strong>Attendance</strong>: <%= event.Attendance %></li>
       <% } %>
+      </ul>
       <!-- end main stuff-->
   </div>
   <div class = "col-md-4">
@@ -74,9 +50,9 @@
 <div class = "row">
     <div class = "col-md-8">
         <ul class="list-unstyled list-inline">
-            <li class="list-inline-item"><a href="<%= eventsPath() %>" class="btn btn-info"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all events&nbsp;</a></li>
-            <li class="list-inline-item"><a href="<%= editEventPath({ event_id: event.ID })%>" class="btn btn-warning"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
-            <li class="list-inline-item"><a href="<%= eventPath({ event_id: event.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
+            <li class="list-inline-item"><a href="<%= eventsPath() %>" class="btn btn-info btn-sm"><i class="fa fa-fw fa-lg fa-arrow-left"></i>Back to all events&nbsp;</a></li>
+            <li class="list-inline-item"><a href="<%= editEventPath({ event_id: event.ID })%>" class="btn btn-warning btn-sm"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i>Edit</a></li>
+            <li class="list-inline-item"><a href="<%= eventPath({ event_id: event.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-lg fa-trash"></i>Destroy</a>
           </ul>
     </div>
     <div class = "col-md-4 meta-text">
