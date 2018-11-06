@@ -1,52 +1,74 @@
-<div class="page-header">
-  <h1><%= event.Title %></h1>
+<div class = "row">
+  <div class = "col-md-8">
+      <h1><%= event.Title %></h1>
+      <!-- put all the other stuff here-->
+      <div class = "row">
+        <div class = "col-md-12">
+          <strong>Dates</strong>: <%= event.EventBeginDate.Format("January 02, 2006 15:04:05") %> - <%= event.EventEndDate.Format("January 02, 2006") %>
+        </div>
+      </div>
+      <%= if (event.Location.String != "") { %>
+        <div class = "row">
+          <div class = "col-md-12">
+            <strong>Location</strong>: <%= event.Location %>
+          </div>
+        </div>
+      <% } %>
+      <%= if (event.HomePage.String != "") { %>
+        <div class = "row">
+          <div class = "col-md-12">
+            <strong>Home Page</strong>: <a href = "<%= event.HomePage %>"><%= event.HomePage %></a>
+          </div>
+        </div>
+      <% } %>
+      <%= if (event.SchedulePage.String != "") { %>
+        <div class = "row">
+          <div class = "col-md-12">
+            <strong>Schedule Page</strong>: <a href = "<%= event.SchedulePage %>"><%= event.SchedulePage %></a>
+          </div>
+        </div>
+      <% } %>
+      <%= if (event.SponsorPage.String != "") { %>
+        <div class = "row">
+          <div class = "col-md-12">
+            <strong>Sponsor Page</strong>: <a href = "<%= event.SponsorPage %>"><%= event.SponsorPage %></a>
+          </div>
+        </div>
+      <% } %>
+      <%= if (event.CfpPage.String != "") { %>
+        <div class = "row">
+          <div class = "col-md-12">
+            <strong>CFP Page</strong>: <%= event.CfpPage %>
+          </div>
+        </div>
+      <% } %>
+      <%= if (event.RegistrationPage.String != "") { %>
+        <p>
+          <strong>Registration Page</strong>: <%= event.RegistrationPage %>
+        </div></div>
+      <% } %>
+      <%= if (event.EventReport.String != "") { %>
+        <div class = "row">
+          <div class = "col-md-12">
+          <strong>Event Report</strong>: <%= event.EventReport %>
+        </div></div>
+      <% } %>
+      <%= if (event.Attendance != null) { %>
+      <div class = "row">
+        <div class = "col-md-12">
+          <strong>Attendance</strong>: <%= event.Attendance %>
+        </div>
+      </div>
+      <% } %>
+      <!-- end main stuff-->
+  </div>
+  <div class = "col-md-4">
+    <%= if (event.LogoName != "") { %>
+      <a href = "<%= buildS3Url() %>uploads/events/<%= event.LogoName %>"><img class = "img-fluid" src = "<%= buildS3Url() %>uploads/events/<%= event.LogoName %>"></a>
+    <% } %>
+  </div>
 </div>
 
-<%= if (event.LogoName != "") { %>
-  <a href = "<%= buildS3Url() %>uploads/events/<%= event.LogoName %>"><img class = "img-thumbnail" src = "<%= buildS3Url() %>uploads/events/<%= event.LogoName %>"></a>
-
-<% } %>
-<p>
-  <strong>Dates</strong>: <%= event.EventBeginDate.Format("January 02, 2006 15:04:05") %> - <%= event.EventEndDate.Format("January 02, 2006") %>
-</p>
-<%= if (event.Location.String != "") { %>
-  <p>
-    <strong>Location</strong>: <%= event.Location %>
-  </p>
-<% } %>
-<%= if (event.HomePage.String != "") { %>
-  <p>
-    <strong>Home Page</strong>: <a href = "<%= event.HomePage %>"><%= event.HomePage %></a>
-  </p>
-<% } %>
-<%= if (event.SchedulePage.String != "") { %>
-  <p>
-    <strong>Schedule Page</strong>: <%= event.SchedulePage %>
-  </p>
-<% } %>
-<%= if (event.SponsorPage.String != "") { %>
-  <p>
-    <strong>Sponsor Page</strong>: <%= event.SponsorPage %>
-  </p>
-<% } %>
-<%= if (event.CfpPage.String != "") { %>
-  <p>
-    <strong>CFP Page</strong>: <%= event.CfpPage %>
-  </p>
-<% } %>
-<%= if (event.RegistrationPage.String != "") { %>
-  <p>
-    <strong>Registration Page</strong>: <%= event.RegistrationPage %>
-  </p>
-<% } %>
-<%= if (event.EventReport.String != "") { %>
-  <p>
-    <strong>Event Report</strong>: <%= event.EventReport %>
-  </p>
-<% } %>
-  <p>
-    <strong>Attendance</strong>: <%= event.Attendance %>
-  </p>
 <hr />
 
 <div class = "row">
