@@ -2,16 +2,16 @@
   <h1>Dutonians</h1>
 </div>
 <ul class="list-unstyled list-inline">
-  <li><a href="<%= newDutoniansPath() %>" class="btn btn-primary btn-sm"><i class="fa fa-fw fa-lg fa-file-text"></i>Create New Dutonian</a></li>
+  <li><a href="<%= newDutoniansPath() %>" class="btn btn-primary btn-sm"><i class="fas fa-lg fa-file-plus"></i>&nbsp;Create New Dutonian</a></li>
 </ul>
 
-<table class="table table-striped">
-  <!-- <thead>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Bio</th>
-    <th>&nbsp;</th>
-  </thead> -->
+<table id="dutonianTable" class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <!-- <th>Lastname</th>
+    <th>Bio</th>-->
+    <th>&nbsp;</th> 
+  </thead>
   <tbody>
     <%= for (dutonian) in dutonians { %>
       <tr>
