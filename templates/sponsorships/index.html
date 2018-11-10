@@ -15,7 +15,7 @@
   <tbody>
     <%= for (sponsorship) in sponsorships { %>
       <tr>
-      <td><%= getEventName(sponsorship.EventID) %></td>
+      <td><a href="<%= eventPath({ event_id: sponsorship.EventID }) %>"><%= getEventName(sponsorship.EventID) %></a></td>
         <td><%= sponsorship.Status %></td>
         <td><%=getEventLocation(sponsorship.EventID) %></td>
         <td>
