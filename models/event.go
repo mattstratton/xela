@@ -26,8 +26,8 @@ type Event struct {
 	UserID           uuid.UUID    `json:"user_id" db:"user_id"`
 	UpdatedBy        uuid.UUID    `json:"updated_by" db:"updated_by"`
 	Title            string       `json:"title" db:"title"`
-	EventBeginDate   nulls.Time   `json:"event_begin_date" db:"event_begin_date"`
-	EventEndDate     nulls.Time   `json:"event_end_date" db:"event_end_date"`
+	EventBeginDate   time.Time    `json:"event_begin_date" db:"event_begin_date"`
+	EventEndDate     time.Time    `json:"event_end_date" db:"event_end_date"`
 	Location         nulls.String `json:"location" db:"location"`
 	HomePage         nulls.String `json:"home_page" db:"home_page"`
 	SchedulePage     nulls.String `json:"schedule_page" db:"schedule_page"`
@@ -129,6 +129,13 @@ func (e *Event) AfterUpdate(tx *pop.Connection) error {
 func (e *Event) Validate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.Validate(
 		&validators.StringIsPresent{Field: e.Title, Name: "Title"},
+		&validators.TimeIsBeforeTime{
+			FirstName:  "Event Start Date",
+			FirstTime:  e.EventBeginDate,
+			SecondName: "Event End Date",
+			SecondTime: e.EventEndDate,
+			Message:    "Event start date must be before end date",
+		},
 	), nil
 }
 
@@ -143,33 +150,3 @@ func (e *Event) ValidateCreate(tx *pop.Connection) (*validate.Errors, error) {
 func (e *Event) ValidateUpdate(tx *pop.Connection) (*validate.Errors, error) {
 	return validate.NewErrors(), nil
 }
-
-// func AddFileToS3(s *session.Session, fileDir string) error {
-
-// 	// Open the file for use
-// 	file, err := os.Open(fileDir)
-// 	if err != nil {
-// 		return err
-// 	}
-// 	defer file.Close()
-
-// 	// Get file size and read the file content into a buffer
-// 	fileInfo, _ := file.Stat()
-// 	var size int64 = fileInfo.Size()
-// 	buffer := make([]byte, size)
-// 	file.Read(buffer)
-
-// 	// Config settings: this is where you choose the bucket, filename, content-type etc.
-// 	// of the file you're uploading.
-// 	_, err = s3.New(s).PutObject(&s3.PutObjectInput{
-// 		Bucket:               aws.String(os.Getenv("S3_BUCKET")),
-// 		Key:                  aws.String(fileDir),
-// 		Body:                 bytes.NewReader(buffer),
-// 		ACL:                  aws.String("public-read"),
-// 		ContentLength:        aws.Int64(size),
-// 		ContentType:          aws.String(http.DetectContentType(buffer)),
-// 		ContentDisposition:   aws.String("attachment"),
-// 		ServerSideEncryption: aws.String("AES256"),
-// 	})
-// 	return err
-// }

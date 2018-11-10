@@ -9,6 +9,7 @@
   <thead>
   <th>Title</th>
     <th>Location</th>
+    <th>Start Date</th>
     <th>&nbsp;</th>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <tr>
       <td><a href="<%= eventPath({ event_id: event.ID }) %>"><%= event.Title %></a></td>
         <td><%= event.Location %></td>
+        <td><%= event.EventBeginDate.Format("January 02, 2006") %></td>
         <td>
           <div class="pull-right">
             <a href="<%= eventPath({ event_id: event.ID }) %>" class="btn btn-info btn-sm"><i class="far fa-lg fa-eye"></i></a>

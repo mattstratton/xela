@@ -3,6 +3,7 @@ package actions
 import (
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/PagerDuty/xela/models"
 	"github.com/gobuffalo/buffalo/render"
@@ -118,6 +119,13 @@ func init() {
 					return "", errors.WithStack(errors.New("query error"))
 				} else {
 					return event.Location.String, nil
+				}
+			},
+			"displayEventDate": func(eventStartDate time.Time, eventEndDate time.Time) string {
+				if eventStartDate == eventEndDate {
+					return eventStartDate.Format("January 02, 2006")
+				} else {
+					return fmt.Sprintf("%s - %s", eventStartDate.Format("January 02, 2006"), eventEndDate.Format("January 02, 2006"))
 				}
 			},
 		},

@@ -7,7 +7,7 @@ require( 'datatables.net-bs4' )( window, $ );
 $(document).ready( function () {
     $('#eventTable').DataTable( {
         "columnDefs": [
-            { "orderable": false, "targets": 2 }
+            { "orderable": false, "targets": 3 }
           ]
     });
     $('#abstractTable').DataTable( {
