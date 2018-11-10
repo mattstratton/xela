@@ -54,6 +54,10 @@ const configurator = {
     return {
       rules: [
         {
+          test: /\.css$/,
+          loader: "style!css-loader"
+        },
+        {
           test: /\.s[ac]ss$/,
           use: [
             MiniCssExtractPlugin.loader,
@@ -66,7 +70,11 @@ const configurator = {
         { test: /\.(woff|woff2|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,use: "url-loader"},
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,use: "file-loader" },
         { test: require.resolve("jquery"),use: "expose-loader?jQuery!expose-loader?$"},
-        { test: /\.go$/, use: "gopherjs-loader"}
+        { test: /\.go$/, use: "gopherjs-loader"},
+        { parser: {
+          amd: false
+          }
+        },
       ]
     }
   },
