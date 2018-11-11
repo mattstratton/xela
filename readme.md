@@ -62,7 +62,7 @@ AWS_ACCESS_KEY_ID:       xxxxxx
 AWS_SECRET_ACCESS_KEY:   xxxxxxx
 ```
 
-Deploying to Heroku via Docker uses these commands
+Deploying to Heroku via Docker uses these commands (TODO)
 
 #### Initial Setup
 
@@ -75,6 +75,10 @@ heroku config:set HOST=xxxx.herokuapp.com
 heroku config:set AUTHORIZED_LOGIN_DOMAIN=pagerduty.com
 heroku config:set GOOGLE_KEY=xxx-xxx.apps.googleusercontent.com
 heroku config:set GOOGLE_SECRET=xxx
+heroku config:set S3_REGION=xxx
+heroku config:set S3_BUCKET=xxx
+heroku config:set AWS_ACCESS_KEY_ID=xxx
+heroku config:set AWS_SECRET_ACCESS_KEY=xxx
 heroku run /bin/app migrate
 heroku open
 ```
@@ -88,6 +92,8 @@ heroku container:push web
 heroku container:release web
 heroku run /bin/app migrate
 ```
+
+Or you can run the `heroku-deploy.sh` shell script.
 
 ## Authors
 
