@@ -1,8 +1,11 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/mattstratton/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/mattstratton/xela?branch=master)](https://bettercodehub.com/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # xela
 
 A webapp for tracking sponsorship, speaking, and cfps for events.
 
 Built with :heart: by [@mattstratton](https://github.com/mattstratton) in Go.
+
 
 ![xela](https://raw.githubusercontent.com/mattstratton/xela/master/assets/images/xela-logo.png)
 
