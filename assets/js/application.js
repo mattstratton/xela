@@ -1,8 +1,9 @@
 require("expose-loader?$!expose-loader?jQuery!jquery");
 require("bootstrap/dist/js/bootstrap.bundle.js");
-require( 'datatables.net-bs4' )( window, $ );
+// * Set using https://datatables.net/
+var dt = require( 'datatables.net-bs4' )( window, $ );
+var dp = require('bootstrap-datepicker');
 
-// Set using https://datatables.net/
 
 $(document).ready( function () {
     $('#eventTable').DataTable( {
@@ -30,4 +31,6 @@ $(document).ready( function () {
             { "orderable": false, "targets": 3 }
           ]
     });
+    // https://bootstrap-datepicker.readthedocs.io/en/stable/index.html
+    $('.datepicker').datepicker()
 } );

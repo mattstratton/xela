@@ -55,7 +55,16 @@ const configurator = {
       rules: [
         {
           test: /\.css$/,
-          loader: "style!css-loader"
+          loader: "style-loader!css-loader"
+        },
+        {
+          test: /\.(jpe?g|png|gif)$/i,
+          loader:"file-loader",
+          options:{
+            name:'[name].[ext]',
+            outputPath:'assets/images/'
+            //the images will be emited to dist/assets/images/ folder
+          }
         },
         {
           test: /\.s[ac]ss$/,
