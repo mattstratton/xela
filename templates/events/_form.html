@@ -1,13 +1,31 @@
-<%= f.InputTag("Title") %>
-Event Start Date: <input type="text" name = "EventBeginDate" id="datepicker"><br />
-Event End Date: <input type="text" name = "EventEndDate" id="datepicker">
-<%= f.TextAreaTag("Location", {rows: 1}) %>
-<%= f.TextAreaTag("HomePage", {rows: 1}) %>
-<%= f.TextAreaTag("SchedulePage", {rows: 1}) %>
-<%= f.TextAreaTag("SponsorPage", {rows: 1}) %>
-<%= f.TextAreaTag("CfpPage", {rows: 1}) %>
-<%= f.TextAreaTag("RegistrationPage", {rows: 1}) %>
-<%= f.TextAreaTag("EventReport", {rows: 1}) %>
-<%= f.InputTag("Attendance") %>
-<%= f.FileTag("Logo") %>
-<button class="btn btn-success" role="submit">Save</button>
+<div class = "row">
+    <div class = "col-md-6">
+            <%= f.InputTag("Title") %>
+            Event Start Date: <input type="text" name = "EventBeginDate" id="datepicker"><br /><br />
+            Event End Date: <input type="text" name = "EventEndDate" id="datepicker"><br />
+            <%= f.InputTag("Location") %>
+            <%= f.InputTag("HomePage", {label: "Event Homepage URL"}) %>
+            <%= f.InputTag("SchedulePage", {label: "Event Schedule URL"}) %>
+            <%= f.InputTag("SponsorPage", {label: "Event Sponsor Page URL"}) %>
+            <%= f.InputTag("CfpPage", {label: "CFP URL"}) %>
+            <%= f.InputTag("RegistrationPage", {label: "Registration URL"}) %>
+            <%= f.InputTag("EventReport", {label: "Event Report URL"}) %>
+            <%= f.InputTag("Attendance") %>
+            <%= f.FileTag("Logo") %>
+            <button class="btn btn-success" role="submit">Save</button>
+    </div>
+    <div class = "col-md-6">
+        <h2>Instructions for Event Form</h2>
+        <p>
+            The <em>Title</em> is required.
+        </p>
+        <p>
+            It is also required to provide an Event Logo, or you will get an error.
+        </p>
+        <p>
+            All other fields are optional.
+        </p>
+    </div>
+</div>
+
+
