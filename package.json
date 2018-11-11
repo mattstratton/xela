@@ -10,6 +10,7 @@
     "datatables.net": "^1.10.19",
     "datatables.net-bs4": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
+    "flatpickr": "^4.5.2",
     "jquery": "~3.2.1",
     "jquery-ujs": "~1.2.2",
     "popper.js": "^1.14.4",

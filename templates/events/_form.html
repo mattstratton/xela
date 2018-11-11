@@ -1,6 +1,6 @@
 <%= f.InputTag("Title") %>
-<%= f.InputTag("EventBeginDate", {data-provide: "datepicker", data-date-format:"mm/dd/yyyy"}) %><br>
-<%= f.InputTag("EventEndDate", {data-provide: "datepicker"}) %><br>
+Event Start Date: <input type="text" name = "EventBeginDate" id="datepicker"><br />
+Event End Date: <input type="text" name = "EventEndDate" id="datepicker">
 <%= f.TextAreaTag("Location", {rows: 1}) %>
 <%= f.TextAreaTag("HomePage", {rows: 1}) %>
 <%= f.TextAreaTag("SchedulePage", {rows: 1}) %>

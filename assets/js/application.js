@@ -2,10 +2,13 @@ require("expose-loader?$!expose-loader?jQuery!jquery");
 require("bootstrap/dist/js/bootstrap.bundle.js");
 // * Set using https://datatables.net/
 var dt = require( 'datatables.net-bs4' )( window, $ );
-var dp = require('bootstrap-datepicker');
+// * Set using https://flatpickr.js.org/
+var flatpickr = require("flatpickr");
+require("../../node_modules/flatpickr/dist/flatpickr.min.css");
 
 
 $(document).ready( function () {
+    flatpickr('#datepicker');
     $('#eventTable').DataTable( {
         "columnDefs": [
             { "orderable": false, "targets": 3 }
@@ -31,6 +34,5 @@ $(document).ready( function () {
             { "orderable": false, "targets": 3 }
           ]
     });
-    // https://bootstrap-datepicker.readthedocs.io/en/stable/index.html
-    $('.datepicker').datepicker()
+
 } );
