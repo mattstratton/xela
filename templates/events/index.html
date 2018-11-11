@@ -17,7 +17,11 @@
       <tr>
       <td><a href="<%= eventPath({ event_id: event.ID }) %>"><%= event.Title %></a></td>
         <td><%= event.Location %></td>
-        <td><%= event.EventBeginDate.Format("January 02, 2006") %></td>
+        <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
+          <td><%= event.EventBeginDate.Format("January 02, 2006") %></td>
+          <% } else { %>
+            <td></td>
+          <% } %>
         <td>
           <div class="pull-right">
             <a href="<%= eventPath({ event_id: event.ID }) %>" class="btn btn-info btn-sm"><i class="far fa-lg fa-eye"></i></a>

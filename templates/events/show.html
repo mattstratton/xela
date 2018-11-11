@@ -3,11 +3,15 @@
       <h1><%= event.Title %></h1>
       <!-- put all the other stuff here-->
       
+      <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
+
       <div class = "row">
         <div class = "col-md-12">
           <%= displayEventDate(event.EventBeginDate, event.EventEndDate) %>
         </div>
       </div>
+
+      <% } %>
      
 
       <ul class="list-group list-group-flush">
