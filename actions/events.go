@@ -109,7 +109,7 @@ func (v EventsResource) Create(c buffalo.Context) error {
 	if verrs.HasAny() {
 		// Make the errors available inside the html template
 		c.Set("errors", verrs)
-		c.Flash().Add("danger","go to heck!")
+		c.Flash().Add("danger", "Error with data. Maybe your dates are out of order?")
 
 		// Render again the new.html template that the user can
 		// correct the input.
