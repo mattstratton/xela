@@ -16,10 +16,13 @@ func HomeHandler(c buffalo.Context) error {
 	// Get the DB connection from the context
 	tx := c.Value("tx").(*pop.Connection)
 	events := &models.Events{}
+	cfps := &models.Events{}
 
 	qs := fmt.Sprintf("event_begin_date >= '%s'", time.Now().Format("2006-01-02 00:00:00"))
+	cfpqs := fmt.Sprintf("cfp_begin_date >= '%s'", time.Now().Format("2006-01-02 00:00:00"))
 	// q := tx.Where("event_begin_date >= '11/01/2018'")
 	q := tx.Where(qs)
+	cfpq := tx.Where(cfpqs)
 
 	// 2006-01-02 00:00:00
 	// Mon Jan 2 15:04:05 MST 2006
@@ -33,8 +36,11 @@ func HomeHandler(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
+	err = cfpq.Order("cfp_begin_date asc").All(cfps)
+
 	// Make events available inside the html template
 	c.Set("events", events)
+	c.Set("cfps", cfps)
 	// c.Set("pagination", q.Paginator)
 	return c.Render(200, r.HTML("index.html"))
 }

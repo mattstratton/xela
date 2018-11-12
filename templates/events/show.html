@@ -28,6 +28,9 @@
       <%= if (event.SponsorPage.String != "") { %>
             <li class="list-group-item"><strong>Sponsor Page</strong>: <a href = "<%= event.SponsorPage %>"><%= event.SponsorPage %></a></li>
       <% } %>
+      <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
+        CFP Open: <%= displayEventDate(event.CfpBeginDate, event.CfpEndDate) %>
+      <% } %>
       <%= if (event.CfpPage.String != "") { %>
             <li class="list-group-item"><strong>CFP Page</strong>: <a href = "<%= event.CfpPage %>"><%= event.CfpPage %></li></a>
       <% } %>

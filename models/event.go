@@ -28,6 +28,8 @@ type Event struct {
 	Title            string       `json:"title" db:"title"`
 	EventBeginDate   time.Time    `json:"event_begin_date" db:"event_begin_date"`
 	EventEndDate     time.Time    `json:"event_end_date" db:"event_end_date"`
+	CfpBeginDate     time.Time    `json:"cfp_begin_date" db:"cfp_begin_date"`
+	CfpEndDate       time.Time    `json:"cfp_end_date" db:"cfp_end_date"`
 	Location         nulls.String `json:"location" db:"location"`
 	HomePage         nulls.String `json:"home_page" db:"home_page"`
 	SchedulePage     nulls.String `json:"schedule_page" db:"schedule_page"`
@@ -134,7 +136,12 @@ func (e *Event) Validate(tx *pop.Connection) (*validate.Errors, error) {
 			FirstTime:  e.EventBeginDate,
 			SecondName: "Event End Date",
 			SecondTime: e.EventEndDate,
-			Message:    "Event start date must be before end date",
+		},
+		&validators.TimeIsBeforeTime{
+			FirstName:  "CFP Begin Date",
+			FirstTime:  e.CfpBeginDate,
+			SecondName: "CFP End Date",
+			SecondTime: e.CfpEndDate,
 		},
 	), nil
 }

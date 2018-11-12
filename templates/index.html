@@ -5,20 +5,38 @@
     </div>
 </div>
 <div class="row mt-5">
-    <div class = "col-md-6">
+    <div class = "col-md-8 text-center">
         <h2>Upcoming Events</h2>
-        <%= for (event) in events { %>
-            <p>
-            <a href="<%= eventPath({ event_id: event.ID }) %>"><%= event.Title %></a> 
-            <%= if (event.Location.String != "") { %>
-                - <%= event.Location %> 
-                <% } %>
-            <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
-                - <%= event.EventBeginDate.Format("January 02, 2006") %> 
+        <div class = "row mt-5">
+            <%= for (event) in events { %>
+                <div class = "col-md-6 text-left">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="<%= buildS3Url() %>uploads/events/<%= event.LogoName %>" alt="<%= event.Title %> Logo">
+                        <div class="card-body">
+                            <a href="<%= eventPath({ event_id: event.ID }) %>"><h5 class="card-title"><%= event.Title %></h5></a>
+                            <p class="card-text">
+                                <%= if (event.Location.String != "") { %>
+                                    <%= event.Location %><br> 
+                                <% } %>
+                                <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
+                                    <%= event.EventBeginDate.Format("January 02, 2006") %> 
+                                <% } %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             <% } %>
-            </p>
-        <% } %>
-
+        </div>
+    </div>
+    <div class = "col-md-4 text-center">
+        <h2>Open CFP's</h2>
+        <ul class="list-group">
+            <%= for (cfp) in cfps { %>
+                <li class="list-group-item">
+                    <a href="<%= eventPath({ event_id: cfp.ID }) %>"><%= cfp.Title %></a>
+                </li>
+            <% } %>
+        </ul>
     </div>
 </div>
    

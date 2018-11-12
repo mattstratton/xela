@@ -1,0 +1,2 @@
+add_column("events", "cfp_begin_date", "timestamp", {"null": true})
+add_column("events", "cfp_end_date", "timestamp", {"null": true})
