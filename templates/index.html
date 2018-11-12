@@ -3,4 +3,22 @@
         <img class="img-fluid" src = "assets/images/xela-logo.png" />
         <h2>eXcellent Engagement Leads to Awesome</h2>
     </div>
-  </div>
+</div>
+<div class="row mt-5">
+    <div class = "col-md-6">
+        <h2>Upcoming Events</h2>
+        <%= for (event) in events { %>
+            <p>
+            <a href="<%= eventPath({ event_id: event.ID }) %>"><%= event.Title %></a> 
+            <%= if (event.Location.String != "") { %>
+                - <%= event.Location %> 
+                <% } %>
+            <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
+                - <%= event.EventBeginDate.Format("January 02, 2006") %> 
+            <% } %>
+            </p>
+        <% } %>
+
+    </div>
+</div>
+   
