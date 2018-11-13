@@ -34,6 +34,7 @@ docker run --rm -it --publish 0.0.0.0:5432:5432 --name pg -e POSTGRES_PASSWORD=p
 Run the following commands:
 
 `buffalo db create`
+
 `buffalo-pop pop migrate -e development`
 
 
