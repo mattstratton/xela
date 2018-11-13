@@ -54,6 +54,10 @@ AWS_SECRET_ACCESS_KEY=xxxxx
 
 Replace the values as appropriate. If you don't know the Google settings, check with @mattstratton (if you're a PagerDuty employee; if you're not, you're on your own right now!)
 
+#### Google Auth
+
+Follow the instructions [here](xela-goole-auth.pdf).
+
 ### Heroku setup
 
 The following environment variables must be set in Heroku; should look something like this:
