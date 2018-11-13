@@ -21,11 +21,15 @@ func HomeHandler(c buffalo.Context) error {
 	qs := fmt.Sprintf("event_begin_date >= '%s'", time.Now().Format("2006-01-02 00:00:00"))
 	cfpqs := fmt.Sprintf("cfp_begin_date >= '%s'", time.Now().Format("2006-01-02 00:00:00"))
 	// q := tx.Where("event_begin_date >= '11/01/2018'")
-	q := tx.Where(qs)
+	q := tx.Eager().Where(qs)
 	cfpq := tx.Where(cfpqs)
 
 	// 2006-01-02 00:00:00
 	// Mon Jan 2 15:04:05 MST 2006
+	// err := tx.Eager().Where("title = 'Test'").All(myevents) // preload all associations for user with name 'Mark', i.e Books, Houses and FavoriteSong
+	// if err != nil {
+	// 	return errors.WithStack(err)
+	// }
 
 	// q := tx.PaginateFromParams(c.Request().URL.Query())
 	// You can order your list here. Just change
