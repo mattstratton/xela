@@ -30,13 +30,19 @@
     </div>
     <div class = "col-md-4 text-center">
         <h2>Open CFP's</h2>
-        <ul class="list-group">
-            <%= for (cfp) in cfps { %>
-                <li class="list-group-item">
-                    <a href="<%= eventPath({ event_id: cfp.ID }) %>"><%= cfp.Title %></a>
-                </li>
-            <% } %>
-        </ul>
+        <div class = "row mt-5">
+            <div class = "col-md-12 text-center">
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group">
+                        <%= for (cfp) in cfps { %>
+                            <li class="list-group-item">
+                                <a href="<%= eventPath({ event_id: cfp.ID }) %>"><%= cfp.Title %></a>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
    
