@@ -1,6 +1,5 @@
 <%= f.SelectTag("SpeakerID", {"label": "Speaker", options: speakers, value: proposal.SpeakerID,"allow_blank": true,"required":nil }) %>
 <%= f.SelectTag("AbstractID", {"label": "Abstract", options: abstracts, value: proposal.AbstractID,"allow_blank": true,"required":nil }) %>
 <%= f.SelectTag("EventID", {"label": "Event", options: events, value: proposal.EventID,"allow_blank": true,"required":nil }) %>
-<%= f.SelectTag("Status", {options: {"Submitted": "submitted", "Accepted": "accepted", "Rejected": "rejected", "Declined": "declined", "Confirmed": "confirmed", "Withdrawn": "withdrawn"}}) %>
-
+<%= f.SelectTag("Status", {options: [{"Submitted": "submitted"},{"Accepted": "accepted"},{"Rejected": "rejected"},{"Declined": "declined"}, {"Confirmed": "confirmed"},{"Withdrawn": "withdrawn"}]}) %>
 <button class="btn btn-success " role="submit"><i class="fa fa-fw fa-lg fa-check-circle"></i>Save</button>

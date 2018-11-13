@@ -1,10 +1,10 @@
 <%= f.SelectTag("EventID", {"label": "Event", options: events, value: sponsorship.EventID,"allow_blank": true,"required":nil }) %>
-<%= f.SelectTag("Status", {options: {"Requested/Proposed": "proposed", "Request Declined": "declined", "Considering": "considering", "Not Considering": "not considering", "Approved": "approved", "In Progress
-": "in progress", "Confirmed": "confirmed", "On Hold": "on hold"}}) %>
-<%= f.SelectTag("Type", {options: {"10x10 Booth": "10x10 booth", "Custom Booth": "custom booth", "Happy Hour": "happy hour", "Other": "other"}}) %>
+<%= f.SelectTag("Status", {options: [{"Requested/Proposed": "proposed"}, {"Request Declined": "declined"}, {"Considering": "considering"}, {"Not Considering": "not considering"}, {"Approved": "approved"}, {"In Progress
+": "in progress"}, {"Confirmed": "confirmed"}, {"On Hold": "on hold"}]}) %>
+<%= f.SelectTag("Type", {options: [{"10x10 Booth": "10x10 booth"}, {"Custom Booth": "custom booth"}, {"Happy Hour": "happy hour"}, {"Other": "other"}]}) %>
 <%= f.TextAreaTag("Benefits", {rows: 10}) %>
 <%= f.InputTag("Costs") %>
-<%= f.SelectTag("BudgetQuarter", {options: {"Q3 FY2019": "Q3 FY2019", "Q4 FY2019": "Q4 FY2019", "Q1 FY2020": "Q1 FY2020", "Q2 FY2020": "Q2 FY2020", "Q2 FY2020": "Q2 FY2020", "Q3 FY2020": "Q3 FY2020", "Q4 FY202": "Q4 FY202"}}) %>
+<%= f.SelectTag("BudgetQuarter", {options: [{"Q3 FY2019": "Q3 FY2019"}, {"Q4 FY2019": "Q4 FY2019"}, {"Q1 FY2020": "Q1 FY2020"}, {"Q2 FY2020": "Q2 FY2020"}, {"Q3 FY2020": "Q3 FY2020"}, {"Q4 FY2020": "Q4 FY2020"}]}) %>
 <%= f.InputTag("SponsorContactName") %>
 <%= f.InputTag("SponsorContactEmail") %>
 <%= f.InputTag("SponsorContactPhone") %>
