@@ -24,7 +24,7 @@ Make sure you have [Buffalo](http://gobuffalo.io) installed.
 
 ### Local database
 
-You'll need access to a Postgres database set up in the same definition as listed in `database.yml`. I recommend just using docker. Run this command to get the database going (note; you'll lose all the data when Docker goes down)
+You'll need access to a Postgres database set up in the same definition as listed in `database.yml`. I recommend just using Docker. Run this command to get the database going (note; you'll lose all the data when Docker goes down).
 
 ```
 docker run --rm -it --publish 0.0.0.0:5432:5432 --name pg -e POSTGRES_PASSWORD=postgres postgres:alpine\n\n
@@ -112,11 +112,11 @@ Or you can run the `heroku-deploy.sh` shell script.
 
 ## Idiosyncracies
 
-This uses a commercial version of Font Awesome. It will work on localhost; it will NOT work on other domains. TODO is to add an environment variable for your font-awesome hash.```
+This uses a commercial version of [Font Awesome](https://fontawesome.com/). It will work on localhost; it will NOT work on other domains. TODO is to add an environment variable for your font-awesome hash.
 
-There is also a dependency on AWS S3 for uploading images. You'll need to set that up on your own (bucket) and make sure all the values are in the appropriate environment variables as listed above. Currently, file uploads are required to create Events as well as Dutonians (employees) so this is necessary.
+There is also a dependency on AWS S3 for uploading images. You'll need to set that up on your own bucket and make sure all the values are in the appropriate environment variables as listed above. If you don't set this up, you just won't be able to add logos to events or photos to Dutonians.
 
-This is heavily PagerDuty branded right now; a TODO is to make it more white-labeled.
+*This is heavily PagerDuty branded right now; a TODO is to make it more white-labeled.*
 
 
 ## Authors
