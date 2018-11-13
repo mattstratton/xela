@@ -98,7 +98,9 @@ func (v EventsResource) Create(c buffalo.Context) error {
 		return errors.WithStack(err)
 	}
 
-	event.LogoName = event.Logo.Filename
+	if event.Logo.Valid() {
+		event.LogoName = event.Logo.Filename
+	}
 
 	// Validate the data from the html form
 	verrs, err := tx.ValidateAndCreate(event)
