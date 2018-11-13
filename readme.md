@@ -118,8 +118,6 @@ There is also a dependency on AWS S3 for uploading images. You'll need to set th
 
 This is heavily PagerDuty branded right now; a TODO is to make it more white-labeled.
 
-```
-
 ## Authors
 
 - **Matt Stratton** - *Initial work* - [mattstratton](https://github.com/mattstratton)
