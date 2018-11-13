@@ -126,7 +126,6 @@ This is heavily PagerDuty branded right now; a TODO is to make it more white-lab
 
 xela - A webapp for tracking sponsorship, speaking, and cfps for events
 
-|                      |                                          |
 |:---------------------|:-----------------------------------------|
 | **Author:**          | Matt Stratton (<matt.stratton@gmail.com>)
 | **Copyright:**       | Copyright 2018, PagerDuty
