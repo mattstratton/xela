@@ -1,22 +1,5 @@
-<div class = "row">
-    <div class = "col-md-6">
-            <%= f.InputTag("Title") %>
-            <%= f.InputTag("EventBeginDate", {id: "datepicker"}) %>
-            <%= f.InputTag("EventEndDate", {id: "datepicker"}) %>
-            <%= f.InputTag("Location") %>
-            <%= f.InputTag("HomePage", {label: "Event Homepage URL"}) %>
-            <%= f.InputTag("SchedulePage", {label: "Event Schedule URL"}) %>
-            <%= f.InputTag("SponsorPage", {label: "Event Sponsor Page URL"}) %>
-            <%= f.InputTag("CfpBeginDate", {label: "CFP Begin Date",id: "datepicker"}) %>
-            <%= f.InputTag("CfpEndDate", {label: "CFP End Date",id: "datepicker"}) %>
-            <%= f.InputTag("CfpPage", {label: "CFP URL"}) %>
-            <%= f.InputTag("RegistrationPage", {label: "Registration URL"}) %>
-            <%= f.InputTag("EventReport", {label: "Event Report URL"}) %>
-            <%= f.InputTag("Attendance") %>
-            <%= f.FileTag("Logo") %>
-            <button class="btn btn-success" role="submit">Save</button>
-    </div>
-    <div class = "col-md-6">
+<div class = "row-mt-5">
+    <div class = "col-md-12">
         <h2>Instructions for Event Form</h2>
         <p>
             The <em>Title</em> is required.
@@ -24,6 +7,32 @@
         <p>
             All other fields are optional.
         </p>
+    </div>
+</div>
+
+<div class = "row">
+    <div class = "col-md-6">
+        <%= f.InputTag("Title", {label: "*Title"}) %>
+        <%= f.InputTag("EventBeginDate", {id: "datepicker"}) %>
+        <%= f.InputTag("EventEndDate", {id: "datepicker"}) %>
+        <%= f.InputTag("Location") %>
+        <%= f.InputTag("HomePage", {label: "Event Homepage URL"}) %>
+        <%= f.InputTag("SchedulePage", {label: "Event Schedule URL"}) %>
+        <%= f.InputTag("SponsorPage", {label: "Event Sponsor Page URL"}) %>
+    </div>
+    <div class = "col-md-6">
+        <%= f.InputTag("CfpBeginDate", {label: "CFP Begin Date",id: "datepicker"}) %>
+        <%= f.InputTag("CfpEndDate", {label: "CFP End Date",id: "datepicker"}) %>
+        <%= f.InputTag("CfpPage", {label: "CFP URL"}) %>
+        <%= f.InputTag("RegistrationPage", {label: "Registration URL"}) %>
+        <%= f.InputTag("EventReport", {label: "Event Report URL"}) %>
+        <%= f.InputTag("Attendance") %>
+        <%= f.FileTag("Logo") %>
+    </div>
+</div>
+<div class = "row">
+    <div class = "col-md-12">
+        <button class="btn btn-success" role="submit">Save</button>
     </div>
 </div>
 
