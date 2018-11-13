@@ -1,9 +1,9 @@
 {
-  "name": "buffalo",
+  "name": "xela",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "repository": "github.com/gobuffalo/buffalo",
+  "repository": "github.com/mattstratton/xela",
   "dependencies": {
     "bootstrap": "4.1.3",
     "bootstrap-datepicker": "^1.8.0",
