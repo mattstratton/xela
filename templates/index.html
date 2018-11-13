@@ -1,5 +1,3 @@
-<%= events %>
-
 <div class="row mt-5">
     <div class="col text-center">
         <img class="img-fluid" src = "assets/images/xela-logo.png" />
@@ -23,7 +21,6 @@
                                 <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
                                     <%= event.EventBeginDate.Format("January 02, 2006") %> 
                                 <% } %>
-                                <%= event.Proposals %>
                             </p>
                         </div>
                     </div>

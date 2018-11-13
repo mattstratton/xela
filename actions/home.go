@@ -21,7 +21,9 @@ func HomeHandler(c buffalo.Context) error {
 	qs := fmt.Sprintf("event_begin_date >= '%s'", time.Now().Format("2006-01-02 00:00:00"))
 	cfpqs := fmt.Sprintf("cfp_begin_date >= '%s'", time.Now().Format("2006-01-02 00:00:00"))
 	// q := tx.Where("event_begin_date >= '11/01/2018'")
-	q := tx.Eager().Where(qs)
+	// q := tx.Eager().Where(qs)
+	q := tx.Eager().Where(qs).Where("id in (select event_id from proposals where status = 'confirmed') OR id in (select event_id from sponsorships where status = 'confirmed')")
+
 	cfpq := tx.Where(cfpqs)
 
 	// 2006-01-02 00:00:00

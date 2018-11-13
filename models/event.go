@@ -41,6 +41,7 @@ type Event struct {
 	Logo             binding.File `db:"-"`
 	LogoName         string       `json:"logo_name" db:"logo_name"`
 	Proposals        Proposals    `has_many:"proposals" order_by:"created_at asc"`
+	Sponsorships     Sponsorships `has_many:"sponsorships" order_by:"created_at asc"`
 }
 
 // SelectLabel - label for select tag options
