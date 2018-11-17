@@ -83,6 +83,7 @@ func (e *Event) AfterCreate(tx *pop.Connection) error {
 	if err := os.MkdirAll(dir, 0755); err != nil {
 		return errors.WithStack(err)
 	}
+	// TODO: Create a function using SHA and a salt for the new filename and use that instead of e.Logo.Filename below.
 	f, err := os.Create(filepath.Join(dir, e.Logo.Filename))
 	if err != nil {
 		return errors.WithStack(err)

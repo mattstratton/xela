@@ -10,7 +10,7 @@
         <div class = "row mt-5">
             <%= for (event) in events { %>
                 <div class = "col-md-6 text-left">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card h-100" style="width: 18rem;">
                         <img class="card-img-top" src="<%= buildS3Url() %>uploads/events/<%= event.LogoName %>" alt="<%= event.Title %> Logo">
                         <div class="card-body">
                             <a href="<%= eventPath({ event_id: event.ID }) %>"><h5 class="card-title"><%= event.Title %></h5></a>
