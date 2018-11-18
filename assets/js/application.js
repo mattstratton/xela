@@ -8,7 +8,10 @@ require("../../node_modules/flatpickr/dist/flatpickr.min.css");
 
 
 $(document).ready( function () {
-    flatpickr('#datepicker');
+    flatpickr('#datepicker', {
+        allowInput: true,
+        defaultDate: "today",
+    });
     $('#eventTable').DataTable( {
         "columnDefs": [
             { "orderable": false, "targets": 3 }
