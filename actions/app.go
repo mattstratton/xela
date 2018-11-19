@@ -71,11 +71,27 @@ func App() *buffalo.App {
 		auth.DELETE("", AuthDestroy)
 		auth.Middleware.Skip(Authorize, bah, AuthCallback)
 		auth.GET("/{provider}/callback", AuthCallback)
-		app.Resource("/dutonians", DutoniansResource{})
-		app.Resource("/events", EventsResource{})
-		app.Resource("/abstracts", AbstractsResource{})
-		app.Resource("/proposals", ProposalsResource{})
-		app.Resource("/sponsorships", SponsorshipsResource{})
+		// TODO Put all these resources into a group like auth is
+		dr := DutoniansResource{&buffalo.BaseResource{}}
+		dg := app.Resource("/dutonians", dr)
+		dg.Middleware.Skip(Authorize, dr.List, dr.Show)
+		er := EventsResource{&buffalo.BaseResource{}}
+		eg := app.Resource("/events", er)
+		eg.Middleware.Skip(Authorize, er.List, er.Show)
+		ar := AbstractsResource{&buffalo.BaseResource{}}
+		ag := app.Resource("/abstracts", ar)
+		ag.Middleware.Skip(Authorize, ar.List, ar.Show)
+		pr := ProposalsResource{&buffalo.BaseResource{}}
+		pg := app.Resource("/proposals", pr)
+		pg.Middleware.Skip(Authorize, pr.List, pr.Show)
+		sr := SponsorshipsResource{&buffalo.BaseResource{}}
+		sg := app.Resource("/sponsorships", sr)
+		sg.Middleware.Skip(Authorize, sr.List, sr.Show)
+		// app.Resource("/dutonians", DutoniansResource{})
+		// app.Resource("/events", EventsResource{})
+		// app.Resource("/abstracts", AbstractsResource{})
+		// app.Resource("/proposals", ProposalsResource{})
+		// app.Resource("/sponsorships", SponsorshipsResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
