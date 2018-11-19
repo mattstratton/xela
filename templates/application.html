@@ -14,7 +14,7 @@
 
     <div class="container">
       <!-- NavBar -->
-      <nav class="navbar fixed-top navbar-expand-lg header">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="<%= rootPath() %>">
             <img src="/assets/images/x-logo-green.png" width="30" height="30" class="d-inline-block align-top" alt="">
         </a>
@@ -55,10 +55,10 @@
               <% } %>
             </ul>
         </div>
-        </nav> 
-        <!-- End NavBar --> 
+        </nav>
+        <!-- End NavBar -->
         </div>
-        <div class="container main-body">      
+        <div class="container main-body">
             <%= partial("flash.html") %>
             <%= yield %>
         </div>
@@ -74,7 +74,7 @@
                 <div class="col-md-3"><img src = "/assets/images/logo-pagerduty.png" class="img-fluid"></div>
             </div>
             <div class="row">
-                <div class="col-md-3 small">XELA is the tool used by PagerDuty for tracking event sponsorships, 
+                <div class="col-md-3 small">XELA is the tool used by PagerDuty for tracking event sponsorships,
                 speaking engagements, CFPs, and more!
                 <br><br>
                 <a href = "https://github.com/mattstratton/xela" class="footer-link"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;Source</a>
