@@ -22,6 +22,18 @@ Right now, this is pretty sparse. A few things:
 
 Make sure you have [Buffalo](http://gobuffalo.io) installed.
 
+To install the plugins we need, inside the project directory, run
+
+`go get -u -v github.com/gobuffalo/buffalo-plugins`
+
+and then
+
+`buffalo plugins install`
+
+### Running the app locally
+
+Inside the project directory, run `buffalo dev`. This will start the application on http://127.0.0.1:3000
+
 ### Local database
 
 You'll need access to a Postgres database set up in the same definition as listed in `database.yml`. I recommend just using Docker. Run this command to get the database going (note; you'll lose all the data when Docker goes down).
