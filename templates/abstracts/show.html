@@ -20,7 +20,10 @@
 </p>
 <% } %>
 <p>
-  <strong>Abstract</strong>: <%= abstract.Abstract %>
+  <strong>Abstract</strong>:
+</p>
+  <p>
+    <%= markdown(abstract.Abstract) %>
 </p>
 <p>
   <strong>Talk Type</strong>: <%= capitalize(abstract.TalkType.String) %>
