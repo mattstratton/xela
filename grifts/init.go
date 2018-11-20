@@ -1,7 +1,7 @@
 package grifts
 
 import (
-	"github.com/PagerDuty/xela/actions"
+	"github.com/devrelcollective/xela/actions"
 	"github.com/gobuffalo/buffalo"
 )
 

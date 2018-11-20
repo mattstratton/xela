@@ -1,7 +1,7 @@
 package actions
 
 import (
-	"github.com/PagerDuty/xela/models"
+	"github.com/devrelcollective/xela/models"
 	"github.com/gobuffalo/buffalo"
 	"github.com/gobuffalo/pop"
 	"github.com/pkg/errors"

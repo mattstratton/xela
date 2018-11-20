@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/PagerDuty/xela/models"
+	"github.com/devrelcollective/xela/models"
 	"github.com/gobuffalo/buffalo/render"
 	"github.com/gobuffalo/packr"
 	"github.com/gobuffalo/plush"
