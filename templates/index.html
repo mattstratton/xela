@@ -1,7 +1,6 @@
 <div class="row mt-5">
     <div class="col text-center">
-        <img class="img-fluid" src = "assets/images/xela-logo.png" />
-        <h2>eXcellent Engagement Leads to Awesome</h2>
+        <h1>eXcellent Engagement Leads to Awesome</h1>
     </div>
 </div>
 <div class="row mt-5">
@@ -16,10 +15,10 @@
                             <a href="<%= eventPath({ event_id: event.ID }) %>"><h5 class="card-title"><%= event.Title %></h5></a>
                             <p class="card-text">
                                 <%= if (event.Location.String != "") { %>
-                                    <%= event.Location %><br> 
+                                    <%= event.Location %><br>
                                 <% } %>
                                 <%= if (displayEventDate(event.EventBeginDate, event.EventEndDate) != "January 01, 0001") { %>
-                                    <%= event.EventBeginDate.Format("January 02, 2006") %> 
+                                    <%= event.EventBeginDate.Format("January 02, 2006") %>
                                 <% } %>
                             </p>
                         </div>
@@ -45,4 +44,3 @@
         </div>
     </div>
 </div>
-   
