@@ -87,12 +87,15 @@ func App() *buffalo.App {
 		sr := SponsorshipsResource{&buffalo.BaseResource{}}
 		sg := app.Resource("/sponsorships", sr)
 		sg.Middleware.Skip(Authorize, sr.List, sr.Show)
+		lr := LinksResource{&buffalo.BaseResource{}}
+		lg := app.Resource("/links", lr)
+		lg.Middleware.Skip(Authorize, lr.List, lr.Show)
 		// app.Resource("/dutonians", DutoniansResource{})
 		// app.Resource("/events", EventsResource{})
 		// app.Resource("/abstracts", AbstractsResource{})
 		// app.Resource("/proposals", ProposalsResource{})
 		// app.Resource("/sponsorships", SponsorshipsResource{})
-		app.Resource("/links", LinksResource{})
+		// app.Resource("/links", LinksResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
