@@ -92,6 +92,7 @@ func App() *buffalo.App {
 		// app.Resource("/abstracts", AbstractsResource{})
 		// app.Resource("/proposals", ProposalsResource{})
 		// app.Resource("/sponsorships", SponsorshipsResource{})
+		app.Resource("/links", LinksResource{})
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
 
