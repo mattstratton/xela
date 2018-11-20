@@ -37,5 +37,10 @@ $(document).ready( function () {
             { "orderable": false, "targets": 3 }
           ]
     });
+    $('#linksTable').DataTable( {
+        "columnDefs": [
+            { "orderable": false, "targets": 3 }
+          ]
+    });
 
 } );

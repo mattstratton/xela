@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1><%= link.Name %></h1>
+</div>
+
+<p>
+  <strong>URL</strong>: <a href = "<%= link.Url %>"><%= link.Url %></a>
+</p>
+<p>
+  <strong>Description</strong>: <%= link.Description %>
+</p>
+
+<div class = "row">
+    <div class = "col-md-8">
+        <ul class="list-unstyled list-inline">
+            <li class="list-inline-item"><a href="<%= linksPath() %>" class="btn btn-info">Back to all Links</a></li>
+            <li class="list-inline-item"><a href="<%= editLinkPath({ link_id: link.ID })%>" class="btn btn-warning">Edit</a></li>
+            <li class="list-inline-item"><a href="<%= linkPath({ link_id: link.ID })%>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger">Destroy</a>
+          </ul>
+    </div>
+    <div class = "col-md-4 meta-text">
+        <i>Created on <%= link.CreatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(link.UserID) %></i>
+        <br />
+        <i>Last updated on <%= link.UpdatedAt.Format("January 02, 2006 15:04:05") %> by <%= getUserEmail(link.UpdatedBy) %></i>
+    </div>
+</div>

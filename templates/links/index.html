@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>Links</h1>
+</div>
+<ul class="list-unstyled list-inline">
+  <li><a href="<%= newLinksPath() %>" class="btn btn-primary"><i class="fas fa-lg fa-file-plus"></i>&nbsp;Create New Link</a></li>
+</ul>
+
+<table id="linksTable" class="table table-striped">
+  <thead>
+  <th>Name</th>
+    <th>URL</th>
+    <th>Description</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <%= for (link) in links { %>
+      <tr>
+      <td><%= link.Name %></td>
+        <td><a href = "<%= link.Url %>"><%= link.Url %></a></td>
+        <td><%= link.Description %></td>
+        <td>
+          <div class="pull-right">
+            <a href="<%= linkPath({ link_id: link.ID }) %>" class="btn btn-info"><i class="far fa-lg fa-eye"></i></a>
+            <a href="<%= editLinkPath({ link_id: link.ID }) %>" class="btn btn-warning"><i class="far fa-lg fa-pencil-alt"></i></a>
+            <a href="<%= linkPath({ link_id: link.ID }) %>" data-method="DELETE" data-confirm="Are you sure?" class="btn btn-danger"><i class="far fa-lg fa-trash-alt"></i></a>
+          </div>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<div class="text-center">
+  <%= paginator(pagination) %>
+</div>

@@ -1,0 +1,6 @@
+- id: "link.created.success"
+  translation: "Link was successfully created."
+- id: "link.updated.success"
+  translation: "Link was successfully updated."
+- id: "link.destroyed.success"
+  translation: "Link was successfully destroyed."
