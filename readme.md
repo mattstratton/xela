@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/devrelcollective/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/devrelcollective/xela?branch=master)](https://bettercodehub.com/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/devrelcollective/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/devrelcollective/xela?branch=master)](https://bettercodehub.com/) [![Go Report Card](https://goreportcard.com/badge/github.com/devrelcollective/xela)](https://goreportcard.com/report/github.com/devrelcollective/xela) [![GoDoc](https://godoc.org/github.com/devrelcollective/xela?status.svg)](http://godoc.org/github.com/devrelcollective/xela) [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://app.zenhub.com/workspace/o/devrelcollective/xelacli/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 # xela
 
