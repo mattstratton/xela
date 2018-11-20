@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/devrelcollective/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/devrelcollective/xela?branch=master)](https://bettercodehub.com/) [![Go Report Card](https://goreportcard.com/badge/github.com/devrelcollective/xela)](https://goreportcard.com/report/github.com/devrelcollective/xela) [![GoDoc](https://godoc.org/github.com/devrelcollective/xela?status.svg)](http://godoc.org/github.com/devrelcollective/xela) [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://app.zenhub.com/workspace/o/devrelcollective/xelacli/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/devrelcollective/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/devrelcollective/xela?branch=master)](https://bettercodehub.com/) [![Go Report Card](https://goreportcard.com/badge/github.com/devrelcollective/xela)](https://goreportcard.com/report/github.com/devrelcollective/xela) [![GoDoc](https://godoc.org/github.com/devrelcollective/xela?status.svg)](http://godoc.org/github.com/devrelcollective/xela) [![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://app.zenhub.com/workspace/o/devrelcollective/xela/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 # xela
 
@@ -57,12 +57,13 @@ Create a file called `.env` at the root of this project (don't worry, it won't g
 ```
 GOOGLE_KEY=xxxxxx-xxxxxx.apps.googleusercontent.com
 GOOGLE_SECRET=xxxx
-AUTHORIZED_LOGIN_DOMAIN=pagerduty.com
+AUTHORIZED_LOGIN_DOMAINS=pagerduty.com,gmail.com
 S3_REGION=us-east-1
 S3_BUCKET=xela-dev
 AWS_ACCESS_KEY_ID=xxxxxx
 AWS_SECRET_ACCESS_KEY=xxxxx
 ```
+(Note - `AUTHORIZED_LOGIN_DOMAINS` is a comma separated list of domains that can log in. If you have only one domain, just enter it without the comma)
 
 Replace the values as appropriate. If you don't know the Google settings, check with @mattstratton (if you're a PagerDuty employee; if you're not, you're on your own right now!)
 
@@ -76,7 +77,7 @@ The following environment variables must be set in Heroku; should look something
 
 ```
 === pure-taiga-48603 Config Vars
-AUTHORIZED_LOGIN_DOMAIN: pagerduty.com
+AUTHORIZED_LOGIN_DOMAINS: pagerduty.com,gmail.com
 DATABASE_URL:            postgres://xxxxxx:xxxxxx@ec2-54-83-49-109.compute-1.amazonaws.com:5432/xxxxx
 GOOGLE_KEY:              xxxxxxxx-xxxxxxxxx.apps.googleusercontent.com
 GOOGLE_SECRET:           xxxxxxxxxxx

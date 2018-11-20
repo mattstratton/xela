@@ -45,7 +45,8 @@ func AuthCallback(c buffalo.Context) error {
 	u.Provider = gu.Provider
 	u.ProviderID = gu.UserID
 	u.Email = nulls.NewString(gu.Email)
-	if userDomain := strings.SplitAfter(gu.Email, "@"); userDomain[1] != os.Getenv("AUTHORIZED_LOGIN_DOMAIN") {
+
+	if userDomain := strings.SplitAfter(gu.Email, "@"); IsAuthorizedDomain(userDomain[1]) == false {
 		c.Session().Clear()
 		c.Flash().Add("danger", "You are not authorized to log in")
 		return c.Redirect(302, "/")
@@ -62,6 +63,21 @@ func AuthCallback(c buffalo.Context) error {
 	c.Flash().Add("success", "You have been logged in")
 
 	return c.Redirect(302, "/")
+}
+
+func IsAuthorizedDomain(userDomain string) bool {
+	authorizedDomains := splitDomains(os.Getenv("AUTHORIZED_LOGIN_DOMAINS"))
+	for _, domain := range authorizedDomains {
+		if userDomain == string(domain) {
+			return true
+		}
+	}
+	return false
+}
+
+func splitDomains(domain string) []string {
+	domains := strings.Split(domain, ",")
+	return domains
 }
 
 func AuthDestroy(c buffalo.Context) error {
