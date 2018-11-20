@@ -100,7 +100,7 @@ buffalo heroku new
 heroku container:push web
 heroku container:release web
 heroku config:set HOST=xxxx.herokuapp.com
-heroku config:set AUTHORIZED_LOGIN_DOMAIN=pagerduty.com
+heroku config:set AUTHORIZED_LOGIN_DOMAINS=pagerduty.com
 heroku config:set GOOGLE_KEY=xxx-xxx.apps.googleusercontent.com
 heroku config:set GOOGLE_SECRET=xxx
 heroku config:set S3_REGION=xxx
