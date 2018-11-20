@@ -1,8 +1,8 @@
 <div class="page-header">
-  <h1>Dutonians</h1>
+  <h1>Employees</h1>
 </div>
 <ul class="list-unstyled list-inline">
-  <li><a href="<%= newDutoniansPath() %>" class="btn btn-primary btn-sm"><i class="fas fa-lg fa-file-plus"></i>&nbsp;Create New Dutonian</a></li>
+  <li><a href="<%= newDutoniansPath() %>" class="btn btn-primary btn-sm"><i class="fas fa-lg fa-file-plus"></i>&nbsp;Create New Employee</a></li>
 </ul>
 
 <table id="dutonianTable" class="table table-striped">
@@ -10,7 +10,7 @@
     <th>Name</th>
     <!-- <th>Lastname</th>
     <th>Bio</th>-->
-    <th>&nbsp;</th> 
+    <th>&nbsp;</th>
   </thead>
   <tbody>
     <%= for (dutonian) in dutonians { %>
