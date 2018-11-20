@@ -1,4 +1,4 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/mattstratton/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/mattstratton/xela?branch=master)](https://bettercodehub.com/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ece4873a022c341da7de/maintainability)](https://codeclimate.com/github/devrelcollective/xela/maintainability) [![BCH compliance](https://bettercodehub.com/edge/badge/devrelcollective/xela?branch=master)](https://bettercodehub.com/) [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 # xela
 
@@ -7,7 +7,7 @@ A webapp for tracking sponsorship, speaking, and cfps for events.
 Built with :heart: by [@mattstratton](https://github.com/mattstratton) in Go.
 
 
-![xela](https://raw.githubusercontent.com/mattstratton/xela/master/assets/images/xela-logo.png)
+![xela](https://raw.githubusercontent.com/devrelcollective/xela/master/assets/images/xela-logo.png)
 
 
 This project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. We appreciate your contribution. Please refer to the [contributing guidelines](CONTRIBUTING.md) for details on how to help.
@@ -68,7 +68,7 @@ Replace the values as appropriate. If you don't know the Google settings, check 
 
 #### Google Auth
 
-Follow the instructions [here](https://github.com/mattstratton/xela/blob/master/xela-google-auth.pdf).
+Follow the instructions [here](https://github.com/devrelcollective/xela/blob/master/xela-google-auth.pdf).
 
 ### Heroku setup
 

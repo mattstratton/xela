@@ -14,9 +14,9 @@ Prerequisites:
 Clone `xela` from source into `$GOPATH`:
 
 ```sh
-$ mkdir -p $GOPATH/src/github.com/mattstratton/xela
+$ mkdir -p $GOPATH/src/github.com/devrelcollective/xela
 $ cd $_
-$ git clone git@github.com:mattstratton/xela.git .
+$ git clone git@github.com:devrelcollective/xela.git .
 ```
 
 ### Git remote setup
@@ -63,7 +63,7 @@ Fixes #284
 
 (inspired by [Katrina Owen](kytrinyx)'s [excellent blog post](https://splice.com/blog/contributing-open-source-git-repositories-go/))
 
-Assuming that the `you/xela` repo is at `origin`, and `mattstratton/xela` is at `upstream`, here's how to create a pull request:
+Assuming that the `you/xela` repo is at `origin`, and `devrelcollective/xela` is at `upstream`, here's how to create a pull request:
 
 ```sh
 
@@ -85,7 +85,7 @@ $ git reset --hard upstream/master
 
 Licensing is very important to open source projects. It helps ensure the software continues to be available under the terms that the author desired.
 
-This project uses [the MIT license](https://github.com/mattstratton/xela/blob/master/LICENSE).
+This project uses [the MIT license](https://github.com/devrelcollective/xela/blob/master/LICENSE).
 
 The license tells you what rights you have that are provided by the copyright holder. It is important that the contributor fully understands what rights they are licensing and agrees to them. Sometimes the copyright holder isn't the contributor, such as when the contributor is doing work on behalf of a company.
 
@@ -104,7 +104,7 @@ By making a contribution to this project, I certify that:
 
 (b) The contribution is based upon previous work that, to the
     best of my knowledge, is covered under an appropriate open
-    source license and I have the right under that license to   
+    source license and I have the right under that license to
     submit that work with modifications, whether created in whole
     or in part by me, under the same open source license (unless
     I am permitted to submit under a different license), as
