@@ -1,1 +1,1 @@
-module github.com/PagerDuty/xela
+module github.com/devrelcollective/xela
