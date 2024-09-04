@@ -1,6 +1,6 @@
-[[plugin]]
-  binary = "buffalo-heroku"
-  go_get = "github.com/gobuffalo/buffalo-heroku"
+# [[plugin]]
+#   binary = "buffalo-heroku"
+#   go_get = "github.com/gobuffalo/buffalo-heroku"
 
 [[plugin]]
   binary = "buffalo-plugins"

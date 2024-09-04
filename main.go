@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/devrelcollective/xela/actions"
+	"github.com/mattstratton/xela/actions"
 )
 
 // main is the starting point for your Buffalo application.
